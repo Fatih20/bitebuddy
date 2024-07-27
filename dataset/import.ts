@@ -2,7 +2,7 @@ import weaviate, { DataObject } from "weaviate-client";
 import { generateUuid5 } from "weaviate-client";
 import { parse } from "csv-parse/sync";
 import fs from "fs/promises";
-import { FinalData, FinalDataCsv } from "./type";
+import { FinalData, FinalDataCsv } from "./type.ts";
 
 const COLLECTION_NAME = "Menu";
 

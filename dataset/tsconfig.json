@@ -1,7 +1,9 @@
 {
     "compilerOptions": {
       "target": "esnext",
-      "module": "esnext",
+      "module": "Node16",
+      "allowImportingTsExtensions": true,
+      "noEmit": true,
       "moduleResolution": "Node16",
       "esModuleInterop": true,
       "lib": [ "es2018" ],
