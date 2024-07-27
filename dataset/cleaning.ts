@@ -13,7 +13,7 @@ function cleanData(data: FinalData): ActuallyFinal {
     restaurantName: data.restaurantName.toLowerCase(),
     menuName: data.menuName.toLowerCase(),
     menuDescription: data.menuDescription.toLocaleLowerCase(),
-    menuPrice: data.menuPrice,
+    menuPrice: parseInt(data.menuPrice),
     menuTag: [...tags, ...keywords],
     dishType,
     cuisine,
