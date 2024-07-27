@@ -2,7 +2,7 @@ import envVar from "../../../envVar";
 import { ChatAnthropic } from "@langchain/anthropic";
 import { JsonOutputParser } from "@langchain/core/output_parsers";
 import { PromptTemplate } from "@langchain/core/prompts";
-
+import { ChatOpenAI, OpenAI } from "@langchain/openai";
 import { traceable } from "langsmith/traceable";
 import { wrapSDK } from "langsmith/wrappers";
 import { Runnable, RunnableConfig } from "@langchain/core/runnables";
@@ -121,10 +121,10 @@ export class MessageTypeClassifier {
 
   private constructor() {
     const llm = wrapSDK(
-      new ChatAnthropic({
-        model: "claude-3-5-sonnet-20240620",
+      new ChatOpenAI({
+        model: "gpt-4o-mini",
         temperature: 0.3,
-        anthropicApiKey: envVar.anthropicAPIKey,
+        apiKey: envVar.openAIAPIKey,
       })
     );
 

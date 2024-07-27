@@ -20,6 +20,7 @@ import {
   getMessageIntermediates,
   getUserLastMessageString,
 } from "../utils/messageProcessing";
+import { ChatOpenAI, OpenAI } from "@langchain/openai";
 
 export const answerGreetingsPrompt = `
 ${assistantIdentity}
@@ -51,10 +52,10 @@ export class GreetingsAnswerer {
 
   private constructor() {
     const llm = wrapSDK(
-      new ChatAnthropic({
-        model: "claude-3-5-sonnet-20240620",
+      new ChatOpenAI({
+        model: "gpt-4o-mini",
         temperature: 0.3,
-        anthropicApiKey: envVar.anthropicAPIKey,
+        apiKey: envVar.openAIAPIKey,
       })
     );
 
