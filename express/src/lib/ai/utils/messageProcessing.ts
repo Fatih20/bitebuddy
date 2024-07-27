@@ -42,7 +42,7 @@ export type MessageIntermediate = (
 )[];
 
 export function parseHistory(messages: MessageIntermediate[]): string {
-  const flattenedMessages = messages.flat(2);
+  const flattenedMessages = messages.flat(1);
 
   const messageString = flattenedMessages.map((message) => {
     const role =
@@ -52,7 +52,7 @@ export function parseHistory(messages: MessageIntermediate[]): string {
         ? "User"
         : "";
     if (message.type === "text") {
-      return `${role}: ${message.type}`;
+      return `${role}: ${message.text}`;
     } else if (message.type === "foods") {
       return convertMessageIntermediateFood(message);
     } else {

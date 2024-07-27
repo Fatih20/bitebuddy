@@ -354,7 +354,7 @@ export async function graphFindLimit(
     dishType.push("drink");
   }
 
-  const hardLimitProcessed: HardLimitState = {
+  const hardLimitParsed: HardLimitState = {
     portionSize: hardLimitRaw.portionSize,
     price: { ...hardLimitRaw.price },
     dishType: dishType,
@@ -368,8 +368,15 @@ export async function graphFindLimit(
     menu,
     restaurant,
   };
+
+  console.log("Hard limit:");
+  console.log(hardLimitParsed);
+
+  console.log("Soft limit:");
+  console.log(softLimitParsed);
+
   return {
-    hardLimitQuery: hardLimitProcessed,
+    hardLimitQuery: hardLimitParsed,
     softLimitQuery: softLimitParsed,
   };
 }

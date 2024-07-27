@@ -102,10 +102,13 @@ export async function graphSummarize(
     state.messages
   );
 
+  console.log("Message Intermediate: ");
+  console.log(messagesIntermediate);
+
   const chatHistory = parseHistory(messagesIntermediate);
   const summarizer = Summarizer.getInstance();
 
   const summary = await summarizer.summarize({ chatHistory: chatHistory });
-  // console.log("Summary result:\n", summary);
+  console.log("Summary result:\n", summary);
   return { summary: summary };
 }
