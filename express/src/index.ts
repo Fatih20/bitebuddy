@@ -11,6 +11,7 @@ import envVar from "./envVar";
 import { FoodFinderAgent } from "./lib/ai/graph";
 import { convertStateToResponse } from "./lib/ai/utils/messageProcessing";
 import { FeedbackSchema } from "./validationSchema/feedback";
+import { queryClient } from "./lib/search/client";
 
 const app = express();
 const port = envVar.port;
@@ -193,4 +194,5 @@ app.put("/api/feedback/:conversationId/:messageId", async (req, res) => {
 
 app.listen(port, "0.0.0.0", () => {
   console.log(`Server is running at http://0.0.0.0:${port}`);
+  // queryClient.init() // todo enable this
 });
