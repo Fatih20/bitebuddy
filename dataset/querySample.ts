@@ -64,3 +64,18 @@ export const chickenWings: QueryInput = {
   },
   portion: 4,
 };
+
+export const martabakTelor: QueryInput = {
+  dishType: ["food"],
+  query: {
+    menu: "martabak telor",
+    flavor: "savory",
+  },
+};
+
+export const mcd: QueryInput = {
+  dishType: ["food"],
+  query: {
+    restaurant: "McDonald",
+  },
+};

@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z, ZodLazy } from "zod";
 
 export interface FinalData {
   restaurantId: string;
@@ -123,3 +123,20 @@ export const QueryInputSchema = z.object({
 });
 
 export type QueryInput = z.infer<typeof QueryInputSchema>;
+
+export const QueryResultSchema = z.object({
+  menuName: z.string(),
+  menuDescription: z.string(),
+  menuPrice: z.number(),
+  portion: z.number(),
+  restaurantName: z.string(),
+});
+
+export type QueryResult = z.infer<typeof QueryResultSchema>;
+
+export const QueryOutputSchema = z.object({
+  data: QueryResultSchema.array(),
+  message: z.string().nullable(),
+});
+
+export type QueryOutput = z.infer<typeof QueryOutputSchema>;

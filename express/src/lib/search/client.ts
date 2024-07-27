@@ -1,17 +1,19 @@
 import weaviate, {
   BaseBm25Options,
   BaseHybridOptions,
+  BaseNearOptions,
+  BaseNearTextOptions,
   Collection,
   Filters,
   FilterValue,
   WeaviateClient,
 } from "weaviate-client";
-import { QueryInput } from "./types";
+import { QueryInput, QueryOutput, QueryResult } from "./types";
 
 const COLLECTION_NAME = "Menu";
 const RESTAURANT_COLLECTION = "Restaurant";
 
-class QueryProcessor {
+export class QueryProcessor {
   private client: WeaviateClient;
   private collection: Collection<undefined, "Menu">;
   private restaurantCollection: Collection<undefined, "Restaurant">;
@@ -33,28 +35,26 @@ class QueryProcessor {
     return result.objects.map((o) => o.uuid);
   }
 
-  public async queryExact(input: QueryInput) {
+  public async query(input: QueryInput): Promise<QueryOutput> {
+    let explainMessage: string | null = null;
+
     const collection = this.collection;
     const queries: string[] = [];
-    const options: BaseBm25Options<undefined> = {
-      limit: 5,
+    const options: BaseNearTextOptions<undefined> = {
+      limit: 10,
       returnReferences: [
         {
           linkOn: "hasRestaurant",
           returnProperties: ["name"],
         },
       ],
-      returnMetadata: ["score"],
-      queryProperties: [
-        "menuName^3",
-        "menuTag^2",
-        "menuDescription",
-        "cuisine",
-        "flavor",
-      ],
+      returnMetadata: ["distance"],
+      distance: 0.4,
     };
 
     const filters: FilterValue[] = [];
+    const moveAwayConcepts: string[] = [];
+    const moveToConcepts: string[] = [];
 
     // handle query for price
     if (input.price) {
@@ -71,16 +71,6 @@ class QueryProcessor {
           collection.filter.byProperty("menuPrice").lessOrEqual(input.price.max)
         );
       }
-    }
-
-    // handle portion
-    if (input.portion) {
-      filters.push(
-        Filters.or(
-          this.collection.filter.byProperty("portion").equal(1),
-          this.collection.filter.byProperty("portion").equal(input.portion)
-        )
-      );
     }
 
     // handle dishType
@@ -106,31 +96,34 @@ class QueryProcessor {
 
       if (includeRestaurants.length !== 0) {
         filters.push(
-          this.restaurantCollection.filter
+          this.collection.filter
             .byRef("hasRestaurant")
             .byId()
             .containsAny(includeRestaurants)
         );
       } else {
+        explainMessage = `no restaurant ${input.query.restaurant} found`;
         filters.push(
-          this.restaurantCollection.filter
+          this.collection.filter
             .byRef("hasRestaurant")
             .byProperty("name")
-            .equal("laksjdaslkjdas") // intentional empty result
+            .equal("laskjdlkasjdsa") // intentional empty result query
         );
       }
     }
 
     if (input.query.menu) {
-      queries.push(`${input.query.menu.toLowerCase()}`);
+      queries.push(`name ${input.query.menu.toLowerCase()}`);
     }
 
     if (input.query.flavor) {
-      queries.push(`${input.query.flavor.toLowerCase()}`);
+      // queries.push(`flavor ${input.query.flavor.toLowerCase()}`);
+      moveToConcepts.push(`flavor ${input.query.flavor.toLowerCase()}`);
     }
 
     if (input.query.cuisine) {
-      queries.push(`${input.query.cuisine.toLowerCase()}`);
+      // moveToConcepts.push(`cuisine ${input.query.cuisine.toLowerCase()}`);
+      queries.push(`cuisine ${input.query.cuisine.toLowerCase()}`);
     }
 
     // handle exclusion
@@ -151,27 +144,19 @@ class QueryProcessor {
       }
 
       if (input.exclusionQuery.menu) {
-        filters.push(
-          this.collection.filter
-            .byProperty("menuName")
-            .notEqual(`${input.exclusionQuery.menu.toLowerCase()}`)
-        );
+        moveAwayConcepts.push(`${input.exclusionQuery.menu.toLowerCase()}`);
       }
 
       if (input.exclusionQuery.flavor) {
-        filters.push(
-          this.collection.filter
-            .byProperty("flavor")
-            .notEqual(input.exclusionQuery.flavor.toLowerCase())
-        );
+        // queries.push(`flavor not ${input.exclusionQuery.flavor.toLowerCase()}`);
+        moveAwayConcepts.push(`${input.exclusionQuery.flavor.toLowerCase()}`);
       }
 
       if (input.exclusionQuery.cuisine) {
-        filters.push(
-          this.collection.filter
-            .byProperty("cuisine")
-            .notEqual(input.exclusionQuery.cuisine)
-        );
+        // queries.push(
+        //   `cuisine not ${input.exclusionQuery.cuisine.toLowerCase()}`
+        // );
+        moveAwayConcepts.push(`${input.exclusionQuery.cuisine.toLowerCase()}`);
       }
     }
 
@@ -188,18 +173,56 @@ class QueryProcessor {
       }
     }
 
-    const query = queries.join(" ");
+    // handle portion
+    if (input.portion) {
+      moveToConcepts.push(`portion almost ${input.portion}`);
+    }
+
+    if (moveAwayConcepts.length > 0) {
+      options.moveAway = {
+        force: 1,
+        concepts: moveAwayConcepts,
+      };
+    }
+
+    if (moveToConcepts.length > 0) {
+      options.moveTo = {
+        force: 0.5,
+        concepts: moveToConcepts,
+      };
+    }
 
     console.log(`queries`);
     console.log(queries);
     console.log("options");
     console.log(options);
 
-    return await this.collection.query.bm25(query, options);
-  }
+    const result = await this.collection.query.nearText(
+      queries.join(" and "),
+      options
+    );
 
-  public async query(input: QueryInput) {
-    return this.queryExact(input);
+    if (result.objects.length === 0) {
+      explainMessage = "no menu meets the query criteria";
+    }
+
+    // console.log(result);
+
+    const resultData = result.objects.map((o) => {
+      o.properties;
+      return {
+        menuName: o.properties.menuName,
+        menuDescription: o.properties.menuDescription,
+        menuPrice: o.properties.menuPrice,
+        portion: o.properties.portion,
+        restaurantName: o.references!.hasRestaurant.objects[0].properties.name,
+      };
+    });
+
+    return {
+      data: resultData as QueryResult[],
+      message: explainMessage,
+    };
   }
 }
 
