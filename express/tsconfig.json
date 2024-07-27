@@ -9,7 +9,7 @@
     "outDir": "./dist",
     "rootDir": "express/src",
     "paths": {
-      "@/*": ["express/src/*"]
+      "@/*": ["./express/src/*"]
     }
   },
   "include": ["express/src/**/*"],

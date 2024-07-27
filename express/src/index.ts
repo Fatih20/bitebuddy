@@ -4,11 +4,12 @@ import bodyParser from "body-parser";
 import { ChatSchema } from "./validation_schema/chat";
 import { getZodParsingErrorFields } from "./validation_schema/zod";
 import { prisma } from "./lib/prisma";
-import { parseHistory } from "./lib/history";
-import { Summarizer } from "./lib/ai/flows/summarizer";
+import { parseHistory } from "../deprecate/history";
 import { QuestionRephraser } from "./lib/ai/flows/questionRephraser";
 import { HardLimitFinder } from "./lib/ai/flows/hardLimitFinder";
 import envVar from "./envVar";
+import { FoodFinderAgent } from "./lib/ai/graph";
+import { convertStateToResponse } from "./lib/ai/utils/messageProcessing";
 
 const app = express();
 const port = envVar.port;
@@ -42,26 +43,27 @@ app.post("/chat", async (req, res) => {
   let newChat = false;
   let parsedHistory: string = "";
 
-  const { message, conversationId: conversationIdRaw } = bodyParsed.data;
+  const messageObject = bodyParsed.data;
+  const { text, conversationId: conversationIdRaw } = messageObject;
   newChat = !conversationIdRaw;
-  console.log(conversationIdRaw);
+  console.log("Conversation Id accepted:", conversationIdRaw);
   if (!conversationIdRaw) {
     try {
       const { id } = await prisma.conversation.create({
-        data: { summary: message },
+        data: { summary: text },
       });
       conversationId = id;
       await prisma.message.create({
         data: {
           content: {
             type: "text",
-            text: message,
+            text,
           },
           role: "user",
           conversationId,
         },
       });
-      parsedHistory = `User: ${message}`;
+      parsedHistory = `User: ${text}`;
     } catch (e) {
       return res.json({ error: e }).status(500);
     }
@@ -71,44 +73,27 @@ app.post("/chat", async (req, res) => {
       data: {
         content: {
           type: "text",
-          text: message,
+          text: text,
         },
         role: "user",
         conversationId,
       },
     });
-    const history = await prisma.message.findMany({
-      orderBy: { createdAt: "asc" },
-      select: { role: true, content: true },
-      where: { conversationId: { equals: conversationId } },
-    });
-    parsedHistory = parseHistory(history).join("\n");
   }
 
-  const summarizer = await Summarizer.getInstance();
-  const rephraser = await QuestionRephraser.getInstance();
-  const hardLimitFinder = await HardLimitFinder.getInstance();
+  const foodFinderAgent = FoodFinderAgent.getInstance();
 
-  const summary = await summarizer.summarize({ chat_history: parsedHistory });
-  console.log("Summary: ", summary);
-  const rephrasedQuestion = await rephraser.rephraseQuestion({
-    user_preference: summary,
-  });
-  console.log("Rephrased question: ", rephrasedQuestion);
-  const hardLimits = await hardLimitFinder.findHardLimit({
-    food_description: rephrasedQuestion,
-  });
-  console.log("Hard limits: ", hardLimits);
-
-  const aiMessage = await prisma.message.create({
-    data: {
-      content: {
-        type: "text",
-        text: "Saya catat dulu.",
-      },
-      role: "ai",
-      conversationId,
+  const result = await foodFinderAgent.find(
+    {
+      messageObject: [{ text, type: "text", role: "human" }],
     },
+    conversationId
+  );
+
+  const insertedMessage = convertStateToResponse(result, conversationId);
+
+  const aiMessage = await prisma.message.createManyAndReturn({
+    data: insertedMessage,
   });
 
   return res.status(200).json(aiMessage);
