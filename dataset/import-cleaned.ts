@@ -1,8 +1,9 @@
-import weaviate, { DataObject, dataType } from "weaviate-client";
+import weaviate, { DataObject, dataType, generateUuid5 } from "weaviate-client";
 import fs from "fs/promises";
 import { ActuallyFinal } from "./type.ts";
 
 const COLLECTION_NAME = "Menu";
+const RESTAURANT_COLLECTION = "Restaurant";
 
 (async function main() {
   const client = await weaviate.connectToLocal();
@@ -10,46 +11,19 @@ const COLLECTION_NAME = "Menu";
   console.log("old deleted");
 
   await client.collections.delete(COLLECTION_NAME);
+  await client.collections.delete(RESTAURANT_COLLECTION);
+
+  await client.collections.create({
+    name: RESTAURANT_COLLECTION,
+  });
 
   await client.collections.create({
     name: COLLECTION_NAME,
-    properties: [
+    references: [
       {
-        name: "restaurantName",
-        dataType: dataType.TEXT,
-      },
-      {
-        name: "menuName",
-        dataType: dataType.TEXT,
-      },
-      {
-        name: "menuDescription",
-        dataType: dataType.TEXT,
-      },
-      {
-        name: "menuPrice",
-        dataType: dataType.NUMBER,
-      },
-      {
-        name: "portion",
-        dataType: dataType.NUMBER,
-      },
-      {
-        name: "menuTag",
-        dataType: dataType.TEXT_ARRAY,
-      },
-      {
-        name: "dishType",
-        dataType: dataType.TEXT_ARRAY,
-      },
-      {
-        name: "cuisine",
-        dataType: dataType.TEXT_ARRAY,
-      },
-      {
-        name: "flavor",
-        dataType: dataType.TEXT_ARRAY,
-      },
+        name: "hasRestaurant",
+        targetCollection: RESTAURANT_COLLECTION,
+      } as any,
     ],
   });
 
@@ -57,9 +31,31 @@ const COLLECTION_NAME = "Menu";
 
   const parsed = JSON.parse(raw) as ActuallyFinal[];
 
-  const convertedData = parsed.map((each) => {
+  const restaurantSet = new Set<string>();
+
+  parsed.forEach((each) => {
+    restaurantSet.add(each.restaurantName);
+  });
+
+  const restaurantCollection = client.collections.get(RESTAURANT_COLLECTION);
+
+  const restaurantData = [...restaurantSet.values()].map((each) => {
+    return {
+      properties: {
+        name: each,
+      },
+      id: generateUuid5(RESTAURANT_COLLECTION, each),
+    };
+  }) as unknown as DataObject<undefined>[];
+
+  await restaurantCollection.data.insertMany(restaurantData);
+
+  const convertedData = parsed.map(({ restaurantName, ...each }) => {
     return {
       properties: each,
+      references: {
+        hasRestaurant: generateUuid5(RESTAURANT_COLLECTION, restaurantName),
+      },
     };
   }) as unknown as DataObject<undefined>[];
 

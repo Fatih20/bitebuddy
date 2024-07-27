@@ -3,7 +3,6 @@ import { QueryInput } from "./type.ts";
 export const friedChicken: QueryInput = {
   query: {
     menu: "fried chicken",
-    restaurant: "kfc or mcd",
     flavor: "spicy",
   },
   exclusionQuery: {
@@ -17,14 +16,10 @@ export const friedChicken: QueryInput = {
 export const martabakAsin: QueryInput = {
   query: {
     menu: "martabak",
-    restaurant: "pecenongan",
     flavor: "salty",
   },
   exclusionQuery: {
     menu: "roti bakar",
-  },
-  price: {
-    max: 40000000,
   },
 };
 
@@ -86,5 +81,19 @@ export const makananSpesifik: QueryInput = {
 export const yangPentingBrazil: QueryInput = {
   query: {
     cuisine: "italian",
+  },
+};
+
+export const japaneseShushi: QueryInput = {
+  query: {
+    menu: "sushi",
+    cuisine: "japanese",
+  },
+};
+
+export const espresso: QueryInput = {
+  dishType: ["drink"],
+  query: {
+    menu: "espresso",
   },
 };

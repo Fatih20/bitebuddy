@@ -279,8 +279,7 @@
         "menuPrice": 28000,
         "menuTag": [
             "tea",
-            "creamy",
-            "tea"
+            "creamy"
         ],
         "dishType": [
             "drink"
@@ -799,8 +798,7 @@
         "menuPrice": 38000,
         "menuTag": [
             "coffee",
-            "avocado",
-            "coffee"
+            "avocado"
         ],
         "dishType": [
             "drink"
@@ -1653,7 +1651,6 @@
             "chicken",
             "rice",
             "fried chicken",
-            "rice",
             "spices"
         ],
         "dishType": [
@@ -1677,7 +1674,6 @@
             "chicken",
             "rice",
             "fried chicken",
-            "rice",
             "sauce"
         ],
         "dishType": [
@@ -1702,7 +1698,6 @@
             "chicken",
             "rice",
             "fried chicken",
-            "rice",
             "sweet and sour"
         ],
         "dishType": [
@@ -2007,7 +2002,6 @@
         "menuPrice": 15909,
         "menuTag": [
             "coffee",
-            "coffee",
             "milk",
             "palm sugar"
         ],
@@ -2096,8 +2090,7 @@
         "menuPrice": 13636,
         "menuTag": [
             "milk",
-            "strawberry",
-            "milk"
+            "strawberry"
         ],
         "dishType": [
             "drink"
@@ -2905,7 +2898,6 @@
         "menuPrice": 15909,
         "menuTag": [
             "coffee",
-            "coffee",
             "palm sugar",
             "milk"
         ],
@@ -2994,7 +2986,6 @@
         "menuTag": [
             "milk",
             "strawberry",
-            "milk",
             "sweet"
         ],
         "dishType": [
@@ -3082,7 +3073,6 @@
         "menuPrice": 13636,
         "menuTag": [
             "tea",
-            "tea",
             "milk",
             "spices"
         ],
@@ -3147,7 +3137,6 @@
         "menuPrice": 5455,
         "menuTag": [
             "tea",
-            "tea",
             "iced",
             "unsweetened"
         ],
@@ -3168,7 +3157,6 @@
         "menuDescription": "es teh manis yang dingin dan segar",
         "menuPrice": 6364,
         "menuTag": [
-            "tea",
             "tea",
             "iced",
             "sweetened"
@@ -3278,7 +3266,6 @@
         "menuPrice": 12727,
         "menuTag": [
             "rice",
-            "rice",
             "seaweed",
             "sesame"
         ],
@@ -3299,7 +3286,6 @@
         "menuDescription": "nasi ala korea dengan rumput laut, wijen, dan korean hot sauce",
         "menuPrice": 13636,
         "menuTag": [
-            "rice",
             "rice",
             "seaweed",
             "sesame",
@@ -3528,7 +3514,6 @@
         "menuTag": [
             "yogurt",
             "sauce",
-            "yogurt",
             "spices"
         ],
         "dishType": [
@@ -5246,7 +5231,6 @@
         "menuPrice": 45000,
         "menuTag": [
             "rice",
-            "rice",
             "anchovies"
         ],
         "dishType": [
@@ -5266,7 +5250,6 @@
         "menuDescription": "spicy rice + fried flour anchovies",
         "menuPrice": 35000,
         "menuTag": [
-            "rice",
             "rice",
             "spicy",
             "anchovies"
@@ -5290,7 +5273,6 @@
         "menuPrice": 40000,
         "menuTag": [
             "rice",
-            "rice",
             "salted fish",
             "water spinach"
         ],
@@ -5311,7 +5293,6 @@
         "menuDescription": "white rice topped with shredded spicy fish, shredded fried chicken, and green chili special",
         "menuPrice": 30000,
         "menuTag": [
-            "rice",
             "rice",
             "spicy fish",
             "chicken"
@@ -5497,9 +5478,7 @@
             "noodles",
             "martabak",
             "aceh",
-            "meat",
-            "noodles",
-            "martabak"
+            "meat"
         ],
         "dishType": [
             "food"
@@ -7019,8 +6998,7 @@
         "menuTag": [
             "rice",
             "curry",
-            "mutton",
-            "rice"
+            "mutton"
         ],
         "dishType": [
             "food"
@@ -8051,7 +8029,6 @@
         "menuTag": [
             "noodles",
             "drink",
-            "noodles",
             "shrimp",
             "squid",
             "iced tea"
@@ -8098,7 +8075,6 @@
         "menuTag": [
             "rice",
             "catfish",
-            "rice",
             "tempeh",
             "tofu",
             "sambal"
@@ -8122,7 +8098,6 @@
         "menuPrice": 13920,
         "menuTag": [
             "chicken",
-            "chicken",
             "rice",
             "sambal"
         ],
@@ -8144,7 +8119,6 @@
         "menuDescription": "rice, chicken, tofu/tempeh, lalapan",
         "menuPrice": 17400,
         "menuTag": [
-            "chicken",
             "chicken",
             "rice",
             "tofu",
@@ -8168,7 +8142,6 @@
         "menuDescription": "rice, chicken, tofu/tempeh, green sauce, lalapan",
         "menuPrice": 17400,
         "menuTag": [
-            "chicken",
             "chicken",
             "rice",
             "tofu",
@@ -8436,7 +8409,6 @@
         "menuTag": [
             "grilled chicken",
             "rice",
-            "grilled chicken",
             "sambal"
         ],
         "dishType": [
@@ -8459,7 +8431,6 @@
         "menuTag": [
             "grilled chicken",
             "rice",
-            "grilled chicken",
             "tofu",
             "tempeh",
             "sambal"
@@ -8572,7 +8543,6 @@
         "menuDescription": "medium grilled chicken, sweet spicy, separate sambal, lalapan",
         "menuPrice": 13500,
         "menuTag": [
-            "grilled chicken",
             "grilled chicken",
             "sweet spicy sauce",
             "sambal"
@@ -8723,7 +8693,6 @@
         "menuDescription": "rice",
         "menuPrice": 5000,
         "menuTag": [
-            "rice",
             "rice"
         ],
         "dishType": [
@@ -10598,8 +10567,7 @@
         "menuTag": [
             "breakfast",
             "rice",
-            "salted duck egg",
-            "rice"
+            "salted duck egg"
         ],
         "dishType": [
             "food"
@@ -10620,8 +10588,7 @@
         "menuTag": [
             "breakfast",
             "rice",
-            "fried sausage",
-            "rice"
+            "fried sausage"
         ],
         "dishType": [
             "food"
@@ -11165,7 +11132,6 @@
         "menuTag": [
             "milk",
             "ice",
-            "milk",
             "cold"
         ],
         "dishType": [
@@ -11188,8 +11154,6 @@
             "chocolate",
             "milk",
             "ice",
-            "chocolate",
-            "milk",
             "cold"
         ],
         "dishType": [
@@ -11211,7 +11175,6 @@
         "menuTag": [
             "tea",
             "ice",
-            "tea",
             "cold"
         ],
         "dishType": [
@@ -11233,7 +11196,6 @@
         "menuTag": [
             "juice",
             "ice",
-            "juice",
             "cold"
         ],
         "dishType": [
@@ -11255,7 +11217,6 @@
         "menuTag": [
             "watermelon",
             "juice",
-            "watermelon",
             "fresh"
         ],
         "dishType": [
@@ -11277,7 +11238,6 @@
         "menuTag": [
             "papaya",
             "juice",
-            "papaya",
             "fresh"
         ],
         "dishType": [
@@ -11299,7 +11259,6 @@
         "menuTag": [
             "orange",
             "juice",
-            "orange",
             "citrus"
         ],
         "dishType": [
@@ -11323,8 +11282,6 @@
             "pineapple",
             "papaya",
             "juice",
-            "pineapple",
-            "papaya",
             "mixed"
         ],
         "dishType": [
@@ -11347,8 +11304,6 @@
             "strawberry",
             "pear",
             "juice",
-            "strawberry",
-            "pear",
             "mixed"
         ],
         "dishType": [
@@ -11371,8 +11326,6 @@
             "apple",
             "strawberry",
             "juice",
-            "apple",
-            "strawberry",
             "mixed"
         ],
         "dishType": [
@@ -11395,8 +11348,6 @@
             "strawberry",
             "pineapple",
             "juice",
-            "strawberry",
-            "pineapple",
             "mixed"
         ],
         "dishType": [
@@ -11418,7 +11369,6 @@
         "menuTag": [
             "grape",
             "juice",
-            "grape",
             "fresh"
         ],
         "dishType": [
@@ -11441,8 +11391,6 @@
             "watermelon",
             "apple",
             "juice",
-            "watermelon",
-            "apple",
             "mixed"
         ],
         "dishType": [
@@ -11464,7 +11412,6 @@
         "menuTag": [
             "coconut",
             "ice",
-            "coconut",
             "cold"
         ],
         "dishType": [
@@ -11487,8 +11434,6 @@
             "coconut",
             "orange",
             "ice",
-            "coconut",
-            "orange",
             "cold"
         ],
         "dishType": [
@@ -11512,8 +11457,6 @@
             "milk",
             "ice",
             "syrup",
-            "coconut",
-            "milk",
             "cold"
         ],
         "dishType": [
@@ -11536,7 +11479,6 @@
             "coconut",
             "syrup",
             "ice",
-            "coconut",
             "cold"
         ],
         "dishType": [
@@ -11557,7 +11499,6 @@
         "menuPrice": 25000,
         "menuTag": [
             "coconut",
-            "coconut",
             "fresh"
         ],
         "dishType": [
@@ -11577,7 +11518,6 @@
         "menuDescription": "bullet coconut with sugar / no",
         "menuPrice": 20000,
         "menuTag": [
-            "coconut",
             "coconut",
             "fresh"
         ],
@@ -11600,7 +11540,6 @@
         "menuTag": [
             "fruit",
             "soup",
-            "fruit",
             "mixed"
         ],
         "dishType": [
@@ -11620,8 +11559,6 @@
         "menuDescription": "package of two boxes of size 650ml",
         "menuPrice": 65000,
         "menuTag": [
-            "mango",
-            "dragon fruit",
             "mango",
             "dragon fruit",
             "fresh"
@@ -11644,7 +11581,6 @@
         "menuPrice": 32000,
         "menuTag": [
             "mango",
-            "mango",
             "fresh"
         ],
         "dishType": [
@@ -11664,7 +11600,6 @@
         "menuDescription": "pineapple fruit cut into a size of 650 ml",
         "menuPrice": 35000,
         "menuTag": [
-            "pineapple",
             "pineapple",
             "fresh"
         ],
@@ -11687,7 +11622,6 @@
         "menuPrice": 50000,
         "menuTag": [
             "apple",
-            "apple",
             "fresh"
         ],
         "dishType": [
@@ -11707,9 +11641,6 @@
         "menuDescription": "milon watermelon papaya in a box of 650 ml",
         "menuPrice": 35000,
         "menuTag": [
-            "watermelon",
-            "papaya",
-            "melon",
             "watermelon",
             "papaya",
             "melon",
@@ -12407,7 +12338,6 @@
             "dessert",
             "coconut",
             "milk",
-            "coconut",
             "ice"
         ],
         "dishType": [
@@ -12428,7 +12358,6 @@
         "menuPrice": 16000,
         "menuTag": [
             "dessert",
-            "coconut",
             "coconut",
             "ice"
         ],
@@ -12734,7 +12663,6 @@
         "menuPrice": 20000,
         "menuTag": [
             "rice",
-            "tempeh",
             "tempeh",
             "vegetables",
             "sambal"
@@ -14555,7 +14483,6 @@
             "spicy",
             "chicken",
             "teriyaki",
-            "spicy",
             "rice"
         ],
         "dishType": [
@@ -14668,8 +14595,7 @@
         "menuTag": [
             "takeaway",
             "beef",
-            "frozen",
-            "takeaway"
+            "frozen"
         ],
         "dishType": [
             "food"
@@ -18732,7 +18658,6 @@
             "chicken",
             "bento",
             "yakitori",
-            "chicken",
             "fries"
         ],
         "dishType": [
@@ -18757,8 +18682,7 @@
             "chicken",
             "bento",
             "yakitori",
-            "meatball",
-            "rice"
+            "meatball"
         ],
         "dishType": [
             "food"
@@ -18781,9 +18705,7 @@
             "rice",
             "chicken",
             "bento",
-            "yakitori",
-            "chicken",
-            "rice"
+            "yakitori"
         ],
         "dishType": [
             "food"
@@ -18808,8 +18730,7 @@
             "bento",
             "yakitori",
             "beef",
-            "kebab",
-            "rice"
+            "kebab"
         ],
         "dishType": [
             "food"
@@ -18855,7 +18776,6 @@
             "rice",
             "chicken",
             "yakitori",
-            "chicken",
             "sausage"
         ],
         "dishType": [
@@ -18901,8 +18821,7 @@
             "japanese",
             "rice",
             "chicken",
-            "yakitori",
-            "chicken"
+            "yakitori"
         ],
         "dishType": [
             "food"
@@ -20376,7 +20295,6 @@
             "rice",
             "egg",
             "fried rice",
-            "egg",
             "vegetables"
         ],
         "dishType": [
@@ -20424,7 +20342,6 @@
             "egg",
             "shrimp",
             "fried rice",
-            "egg",
             "shrimp paste",
             "vegetables"
         ],
@@ -20500,7 +20417,6 @@
             "rice",
             "chicken",
             "white rice",
-            "chicken",
             "sambal",
             "lime",
             "vegetables"
@@ -20595,7 +20511,6 @@
         "menuTag": [
             "rice",
             "shrimp",
-            "rice",
             "shrimp roll",
             "vegetable salad"
         ],
@@ -20690,8 +20605,7 @@
             "shrimp",
             "egg",
             "butter rice",
-            "ebi furai",
-            "egg"
+            "ebi furai"
         ],
         "dishType": [
             "food"
@@ -20714,8 +20628,7 @@
             "chicken",
             "egg",
             "butter rice",
-            "chicken egg roll",
-            "egg"
+            "chicken egg roll"
         ],
         "dishType": [
             "food"
@@ -20738,8 +20651,7 @@
             "shrimp",
             "egg",
             "butter rice",
-            "shrimp roll",
-            "egg"
+            "shrimp roll"
         ],
         "dishType": [
             "food"
@@ -20761,9 +20673,7 @@
             "rice",
             "beef",
             "egg",
-            "rice",
-            "smoked beef",
-            "egg"
+            "smoked beef"
         ],
         "dishType": [
             "food"
@@ -20785,7 +20695,6 @@
             "rice",
             "chicken",
             "egg",
-            "rice",
             "chicken steak",
             "cheese sauce",
             "fried egg"
@@ -20810,7 +20719,6 @@
         "menuTag": [
             "rice",
             "shrimp",
-            "rice",
             "shrimp roll",
             "cheese sauce"
         ],
@@ -20835,10 +20743,8 @@
             "rice",
             "beef",
             "egg",
-            "rice",
             "beef kebab",
             "cheese sauce",
-            "egg",
             "parsley"
         ],
         "dishType": [
@@ -20861,7 +20767,6 @@
         "menuTag": [
             "rice",
             "shrimp",
-            "rice",
             "ebi furai",
             "cheese sauce"
         ],
@@ -20885,7 +20790,6 @@
         "menuTag": [
             "rice",
             "chicken",
-            "rice",
             "chicken eggroll",
             "cheese sauce"
         ],
@@ -20909,7 +20813,6 @@
         "menuTag": [
             "rice",
             "beef",
-            "rice",
             "beef kebab",
             "vegetables"
         ],
@@ -23271,8 +23174,7 @@
         "menuPrice": 24000,
         "menuTag": [
             "rice",
-            "spicy",
-            "rice"
+            "spicy"
         ],
         "dishType": [
             "food"
@@ -24841,7 +24743,6 @@
             "fruit",
             "healthy",
             "spinach",
-            "fruit",
             "discount"
         ],
         "dishType": [
@@ -25044,8 +24945,7 @@
         "menuTag": [
             "juice",
             "bottled",
-            "carrot juice",
-            "bottled"
+            "carrot juice"
         ],
         "dishType": [
             "drink"
@@ -25066,8 +24966,7 @@
         "menuTag": [
             "juice",
             "bottled",
-            "tamarillo juice",
-            "bottled"
+            "tamarillo juice"
         ],
         "dishType": [
             "drink"
@@ -27219,8 +27118,7 @@
             "fish",
             "sambal",
             "sop",
-            "vegetables",
-            "sambal"
+            "vegetables"
         ],
         "dishType": [
             "food"
@@ -27571,8 +27469,7 @@
         "menuPrice": 50000,
         "menuTag": [
             "noodles",
-            "fried",
-            "noodles"
+            "fried"
         ],
         "dishType": [
             "food"
@@ -27591,7 +27488,6 @@
         "menuDescription": "meatballs b2 adalah hidangan bakso istimewa dari lapo siboto dai - senen. bakso yang kenyal dan lezat disajikan dengan kuah yang kaya rasa. hidangan ini menawarkan kenikmatan bakso dengan cita rasa khas restoran.",
         "menuPrice": 50000,
         "menuTag": [
-            "meatballs",
             "meatballs"
         ],
         "dishType": [
@@ -27611,9 +27507,6 @@
         "menuDescription": "nasi goreng ikan teri + pete adalah hidangan nasi goreng unik dari lapo siboto dai - senen. perpaduan ikan teri yang gurih dan pete yang khas menciptakan rasa yang kuat dan menggugah selera. hidangan ini cocok untuk pecinta makanan dengan rasa yang bold.",
         "menuPrice": 50000,
         "menuTag": [
-            "fried rice",
-            "anchovy",
-            "petai",
             "fried rice",
             "anchovy",
             "petai"
@@ -27637,8 +27530,6 @@
         "menuPrice": 50000,
         "menuTag": [
             "fried rice",
-            "roasted",
-            "fried rice",
             "roasted"
         ],
         "dishType": [
@@ -27659,8 +27550,6 @@
         "menuPrice": 50000,
         "menuTag": [
             "fried rice",
-            "meat",
-            "fried rice",
             "meat"
         ],
         "dishType": [
@@ -27680,8 +27569,6 @@
         "menuDescription": "b2 fried rice noodles adalah hidangan mi goreng spesial dari lapo siboto dai - senen. mi beras yang kenyal digoreng dengan bumbu khas, menciptakan tekstur dan rasa yang menggugah selera. hidangan ini merupakan alternatif lezat untuk pecinta mi goreng.",
         "menuPrice": 50000,
         "menuTag": [
-            "fried rice",
-            "noodles",
             "fried rice",
             "noodles"
         ],
@@ -27813,7 +27700,6 @@
         "menuTag": [
             "noodles",
             "gomak",
-            "noodles",
             "meat",
             "tofu"
         ],
@@ -27836,7 +27722,6 @@
         "menuTag": [
             "noodles",
             "gomak",
-            "noodles",
             "soup",
             "egg",
             "tofu"
@@ -28846,8 +28731,7 @@
         "menuTag": [
             "porridge",
             "chicken",
-            "egg",
-            "chicken"
+            "egg"
         ],
         "dishType": [
             "food"
@@ -28869,7 +28753,6 @@
             "porridge",
             "chicken",
             "dumpling",
-            "chicken",
             "dumplings"
         ],
         "dishType": [
@@ -28890,9 +28773,6 @@
         "menuPrice": 20000,
         "menuTag": [
             "porridge",
-            "chicken",
-            "egg",
-            "sausage",
             "chicken",
             "egg",
             "sausage"
@@ -28937,7 +28817,6 @@
             "porridge",
             "chicken",
             "egg",
-            "chicken",
             "village egg"
         ],
         "dishType": [
@@ -28960,7 +28839,6 @@
             "porridge",
             "chicken",
             "beef",
-            "chicken",
             "beef floss"
         ],
         "dishType": [
@@ -28983,7 +28861,6 @@
             "porridge",
             "chicken",
             "egg",
-            "chicken",
             "salted egg"
         ],
         "dishType": [
@@ -29004,8 +28881,6 @@
         "menuPrice": 18000,
         "menuTag": [
             "porridge",
-            "chicken",
-            "tongcay",
             "chicken",
             "tongcay",
             "caypo"
@@ -29030,8 +28905,6 @@
             "porridge",
             "chicken",
             "egg",
-            "tongcay",
-            "chicken",
             "tongcay",
             "caipo",
             "village egg"
@@ -29058,9 +28931,6 @@
             "egg",
             "sausage",
             "dumpling",
-            "chicken",
-            "egg",
-            "sausage",
             "dumplings"
         ],
         "dishType": [
@@ -29084,8 +28954,6 @@
             "chicken",
             "tongcay",
             "beef",
-            "chicken",
-            "tongcay",
             "caipo",
             "shredded beef"
         ],
@@ -29107,8 +28975,6 @@
         "menuPrice": 16000,
         "menuTag": [
             "porridge",
-            "chicken",
-            "tongcay",
             "chicken",
             "tongcay",
             "caypo"
@@ -29135,8 +29001,6 @@
             "egg",
             "beef",
             "dumpling",
-            "chicken",
-            "egg",
             "shredded beef",
             "dumplings"
         ],
@@ -29158,7 +29022,6 @@
         "menuPrice": 15000,
         "menuTag": [
             "porridge",
-            "chicken",
             "chicken"
         ],
         "dishType": [
@@ -29179,8 +29042,6 @@
         "menuPrice": 16000,
         "menuTag": [
             "porridge",
-            "chicken",
-            "cheese",
             "chicken",
             "cheese"
         ],
@@ -29205,8 +29066,6 @@
             "chicken",
             "egg",
             "dumpling",
-            "chicken",
-            "egg",
             "dumplings"
         ],
         "dishType": [
@@ -29866,7 +29725,6 @@
         "menuTag": [
             "satay",
             "chicken",
-            "chicken",
             "soup"
         ],
         "dishType": [
@@ -29912,7 +29770,6 @@
             "satay",
             "chicken",
             "goat",
-            "satay",
             "package"
         ],
         "dishType": [
@@ -29934,7 +29791,6 @@
         "menuTag": [
             "satay",
             "chicken",
-            "satay",
             "package",
             "rice"
         ],
@@ -29958,7 +29814,6 @@
             "satay",
             "chicken",
             "goat",
-            "satay",
             "package",
             "soup",
             "rice",
@@ -29984,7 +29839,6 @@
             "satay",
             "chicken",
             "goat",
-            "satay",
             "package",
             "soup"
         ],
@@ -30007,8 +29861,7 @@
         "menuTag": [
             "satay",
             "chicken",
-            "taichan",
-            "satay"
+            "taichan"
         ],
         "dishType": [
             "food"
@@ -30029,7 +29882,6 @@
         "menuTag": [
             "satay",
             "goat",
-            "satay",
             "peanut sauce",
             "soy sauce"
         ],
@@ -30052,7 +29904,6 @@
         "menuTag": [
             "satay",
             "goat",
-            "satay",
             "peanut sauce",
             "soy sauce"
         ],
@@ -30075,7 +29926,6 @@
         "menuTag": [
             "satay",
             "goat",
-            "satay",
             "peanut sauce",
             "soy sauce"
         ],
@@ -30098,7 +29948,6 @@
         "menuTag": [
             "satay",
             "goat",
-            "satay",
             "peanut sauce",
             "soy sauce"
         ],
@@ -30121,7 +29970,6 @@
         "menuTag": [
             "satay",
             "chicken",
-            "satay",
             "peanut sauce",
             "soy sauce"
         ],
@@ -30144,8 +29992,7 @@
         "menuTag": [
             "satay",
             "chicken",
-            "taichan",
-            "satay"
+            "taichan"
         ],
         "dishType": [
             "food"
@@ -30227,7 +30074,6 @@
         "menuTag": [
             "satay",
             "chicken",
-            "satay",
             "peanut sauce",
             "soy sauce"
         ],
@@ -30250,7 +30096,6 @@
         "menuTag": [
             "satay",
             "chicken",
-            "satay",
             "peanut sauce",
             "soy sauce"
         ],
@@ -30272,8 +30117,7 @@
         "menuPrice": 36000,
         "menuTag": [
             "satay",
-            "chicken",
-            "satay"
+            "chicken"
         ],
         "dishType": [
             "food"
@@ -30294,8 +30138,7 @@
         "menuTag": [
             "satay",
             "chicken skin",
-            "taichan",
-            "satay"
+            "taichan"
         ],
         "dishType": [
             "food"
@@ -30316,8 +30159,7 @@
         "menuTag": [
             "satay",
             "chicken skin",
-            "taichan",
-            "satay"
+            "taichan"
         ],
         "dishType": [
             "food"
@@ -30338,8 +30180,7 @@
         "menuTag": [
             "satay",
             "chicken skin",
-            "taichan",
-            "satay"
+            "taichan"
         ],
         "dishType": [
             "food"
@@ -30360,7 +30201,6 @@
         "menuTag": [
             "satay",
             "chicken skin",
-            "satay",
             "peanut sauce",
             "soy sauce"
         ],
@@ -30383,7 +30223,6 @@
         "menuTag": [
             "satay",
             "chicken skin",
-            "satay",
             "peanut sauce",
             "soy sauce"
         ],
@@ -31402,7 +31241,6 @@
         "menuTag": [
             "meatballs",
             "beef",
-            "meatballs",
             "spicy broth"
         ],
         "dishType": [
@@ -31425,7 +31263,6 @@
         "menuTag": [
             "meatballs",
             "beef",
-            "meatballs",
             "tendon",
             "spicy broth"
         ],
@@ -33133,7 +32970,6 @@
         "menuPrice": 28000,
         "menuTag": [
             "noodles",
-            "seafood",
             "seafood"
         ],
         "dishType": [
@@ -33215,7 +33051,6 @@
         "menuPrice": 28000,
         "menuTag": [
             "fried vermicelli",
-            "seafood",
             "seafood"
         ],
         "dishType": [
@@ -33258,8 +33093,7 @@
         "menuPrice": 28000,
         "menuTag": [
             "seafood",
-            "bihun",
-            "seafood"
+            "bihun"
         ],
         "dishType": [
             "food"
@@ -33322,8 +33156,7 @@
         "menuPrice": 28000,
         "menuTag": [
             "beef",
-            "kwetiaw",
-            "beef"
+            "kwetiaw"
         ],
         "dishType": [
             "food"
@@ -33344,7 +33177,6 @@
         "menuTag": [
             "chicken",
             "kwetiaw",
-            "chicken",
             "soup"
         ],
         "dishType": [
@@ -33366,7 +33198,6 @@
         "menuTag": [
             "beef",
             "kwetiaw",
-            "beef",
             "gravy"
         ],
         "dishType": [
@@ -33387,8 +33218,7 @@
         "menuPrice": 26000,
         "menuTag": [
             "chicken",
-            "flat noodles",
-            "chicken"
+            "flat noodles"
         ],
         "dishType": [
             "food"
@@ -33409,7 +33239,6 @@
         "menuTag": [
             "beef",
             "capcay",
-            "beef",
             "gravy"
         ],
         "dishType": [
@@ -33431,7 +33260,6 @@
         "menuTag": [
             "seafood",
             "capcay",
-            "seafood",
             "soup"
         ],
         "dishType": [
@@ -33453,7 +33281,6 @@
         "menuTag": [
             "chicken",
             "capcay",
-            "chicken",
             "stir-fry"
         ],
         "dishType": [
@@ -33475,7 +33302,6 @@
         "menuTag": [
             "seafood",
             "capcay",
-            "seafood",
             "stir-fry"
         ],
         "dishType": [
@@ -33497,7 +33323,6 @@
         "menuTag": [
             "beef",
             "tofu",
-            "beef",
             "sapo"
         ],
         "dishType": [
@@ -33519,7 +33344,6 @@
         "menuTag": [
             "seafood",
             "tofu",
-            "seafood",
             "sapo"
         ],
         "dishType": [
@@ -33540,8 +33364,7 @@
         "menuPrice": 30000,
         "menuTag": [
             "beef",
-            "ifu mie",
-            "beef"
+            "ifu mie"
         ],
         "dishType": [
             "food"
@@ -33561,8 +33384,7 @@
         "menuPrice": 28500,
         "menuTag": [
             "chicken",
-            "ifu mie",
-            "chicken"
+            "ifu mie"
         ],
         "dishType": [
             "food"
@@ -33706,7 +33528,6 @@
         "menuPrice": 32000,
         "menuTag": [
             "chicken",
-            "chicken",
             "malaya style"
         ],
         "dishType": [
@@ -33726,7 +33547,6 @@
         "menuDescription": "ayam nanking adalah hidangan ayam yang terinspirasi dari masakan tiongkok, disajikan dengan saus khas yang kaya rasa. potongan ayam yang empuk dimasak hingga meresap dengan saus yang manis dan gurih. hidangan ini menawarkan pengalaman kuliner yang unik dengan sentuhan oriental yang kental.",
         "menuPrice": 32000,
         "menuTag": [
-            "chicken",
             "chicken",
             "nanking style"
         ],
@@ -34046,7 +33866,6 @@
         "menuTag": [
             "grilled",
             "ribs",
-            "grilled",
             "vegetables"
         ],
         "dishType": [
@@ -34156,8 +33975,7 @@
         "menuTag": [
             "grilled",
             "chicken",
-            "tofu",
-            "grilled"
+            "tofu"
         ],
         "dishType": [
             "food"
@@ -34178,8 +33996,7 @@
         "menuTag": [
             "fried",
             "fish",
-            "tofu",
-            "fried"
+            "tofu"
         ],
         "dishType": [
             "food"
@@ -34200,8 +34017,7 @@
         "menuTag": [
             "grilled",
             "fish",
-            "tofu",
-            "grilled"
+            "tofu"
         ],
         "dishType": [
             "food"
@@ -34245,8 +34061,7 @@
         "menuTag": [
             "grilled",
             "chicken",
-            "satay",
-            "grilled"
+            "satay"
         ],
         "dishType": [
             "food"
@@ -34267,8 +34082,7 @@
         "menuTag": [
             "grilled",
             "goat",
-            "satay",
-            "grilled"
+            "satay"
         ],
         "dishType": [
             "food"
@@ -34290,7 +34104,6 @@
             "grilled",
             "beef",
             "satay",
-            "grilled",
             "premium"
         ],
         "dishType": [
@@ -34486,8 +34299,7 @@
         "menuTag": [
             "duck",
             "fried",
-            "crispy",
-            "duck"
+            "crispy"
         ],
         "dishType": [
             "food"
@@ -34705,7 +34517,6 @@
         "menuTag": [
             "beef",
             "smashed",
-            "beef",
             "serundeng"
         ],
         "dishType": [
@@ -34727,7 +34538,6 @@
         "menuTag": [
             "beef",
             "stir-fried",
-            "beef",
             "green chili"
         ],
         "dishType": [
@@ -34747,7 +34557,6 @@
         "menuDescription": "nasi goreng ayam+telur",
         "menuPrice": 37500,
         "menuTag": [
-            "fried rice",
             "fried rice",
             "chicken",
             "egg"
@@ -34769,7 +34578,6 @@
         "menuDescription": "nasi goreng dengan tambahan iso (usus) yang gurih dan renyah. hidangan unik yang menggabungkan cita rasa nasi goreng klasik dengan tekstur iso yang khas.",
         "menuPrice": 45000,
         "menuTag": [
-            "fried rice",
             "fried rice",
             "tripe"
         ],
@@ -35001,7 +34809,6 @@
         "menuDescription": "pisang segar pilihan sebagai hidangan penutup atau camilan sehat di waroeng pak eddy kebon sirih. kaya akan nutrisi dan memberikan energi alami.",
         "menuPrice": 5000,
         "menuTag": [
-            "fruit",
             "fruit"
         ],
         "dishType": [
@@ -35346,7 +35153,6 @@
         "menuPrice": 95455,
         "menuTag": [
             "coffee",
-            "coffee",
             "classic"
         ],
         "dishType": [
@@ -35366,7 +35172,6 @@
         "menuDescription": "mabar kopsu, variasi unik dari kopi susu di arah coffee menteng. menggabungkan espresso kuat dengan susu creamy untuk pengalaman kopi yang lembut dan nikmat.",
         "menuPrice": 85455,
         "menuTag": [
-            "coffee",
             "coffee",
             "milk"
         ],
@@ -36329,7 +36134,6 @@
         "menuDescription": "selected tea from selected tea with lemon and hint mint leaves",
         "menuPrice": 21727,
         "menuTag": [
-            "tea",
             "tea",
             "lemon",
             "mint"
@@ -38209,7 +38013,6 @@
         "menuTag": [
             "beef",
             "platter",
-            "beef",
             "rice"
         ],
         "dishType": [
@@ -38232,8 +38035,6 @@
             "falafel",
             "gyro",
             "platter",
-            "falafel",
-            "gyro",
             "rice"
         ],
         "dishType": [
@@ -38256,8 +38057,6 @@
             "falafel",
             "chicken",
             "platter",
-            "falafel",
-            "chicken",
             "rice"
         ],
         "dishType": [
@@ -38279,7 +38078,6 @@
         "menuTag": [
             "cheese",
             "platter",
-            "cheese",
             "combo"
         ],
         "dishType": [
@@ -38301,9 +38099,7 @@
         "menuTag": [
             "cheese",
             "gyro",
-            "platter",
-            "cheese",
-            "gyro"
+            "platter"
         ],
         "dishType": [
             "food"
@@ -38324,9 +38120,7 @@
         "menuTag": [
             "cheese",
             "chicken",
-            "platter",
-            "cheese",
-            "chicken"
+            "platter"
         ],
         "dishType": [
             "food"
@@ -38347,9 +38141,7 @@
         "menuTag": [
             "cheese",
             "falafel",
-            "platter",
-            "cheese",
-            "falafel"
+            "platter"
         ],
         "dishType": [
             "food"
@@ -38371,10 +38163,7 @@
             "cheese",
             "gyro",
             "falafel",
-            "platter",
-            "cheese",
-            "gyro",
-            "falafel"
+            "platter"
         ],
         "dishType": [
             "food"
@@ -38396,10 +38185,7 @@
             "cheese",
             "chicken",
             "falafel",
-            "platter",
-            "cheese",
-            "chicken",
-            "falafel"
+            "platter"
         ],
         "dishType": [
             "food"
@@ -38443,7 +38229,6 @@
         "menuTag": [
             "beef",
             "platter",
-            "beef",
             "rice"
         ],
         "dishType": [
@@ -38466,8 +38251,6 @@
             "beef",
             "gyro",
             "platter",
-            "beef",
-            "gyro",
             "rice"
         ],
         "dishType": [
@@ -38490,8 +38273,6 @@
             "beef",
             "chicken",
             "platter",
-            "beef",
-            "chicken",
             "rice"
         ],
         "dishType": [
@@ -38512,8 +38293,7 @@
         "menuPrice": 57000,
         "menuTag": [
             "gyro",
-            "sandwich",
-            "gyro"
+            "sandwich"
         ],
         "dishType": [
             "food"
@@ -38533,8 +38313,7 @@
         "menuPrice": 50000,
         "menuTag": [
             "chicken",
-            "sandwich",
-            "chicken"
+            "sandwich"
         ],
         "dishType": [
             "food"
@@ -38554,8 +38333,7 @@
         "menuPrice": 50000,
         "menuTag": [
             "fried",
-            "sandwich",
-            "fried"
+            "sandwich"
         ],
         "dishType": [
             "food"
@@ -38576,9 +38354,7 @@
         "menuTag": [
             "beef",
             "gyro",
-            "sandwich",
-            "beef",
-            "gyro"
+            "sandwich"
         ],
         "dishType": [
             "food"
@@ -38599,9 +38375,7 @@
         "menuTag": [
             "fried",
             "chicken",
-            "sandwich",
-            "fried",
-            "chicken"
+            "sandwich"
         ],
         "dishType": [
             "food"
@@ -38622,7 +38396,6 @@
         "menuTag": [
             "falafel",
             "platter",
-            "falafel",
             "rice"
         ],
         "dishType": [
@@ -38642,7 +38415,6 @@
         "menuDescription": "baklava 1 coklat 2 cashew by mardin",
         "menuPrice": 55000,
         "menuTag": [
-            "baklava",
             "baklava",
             "chocolate",
             "cashew"
@@ -38665,7 +38437,6 @@
         "menuPrice": 55000,
         "menuTag": [
             "baklava",
-            "baklava",
             "cashew"
         ],
         "dishType": [
@@ -38685,7 +38456,6 @@
         "menuDescription": "baklava 2 coklat by mardin",
         "menuPrice": 55000,
         "menuTag": [
-            "baklava",
             "baklava",
             "chocolate"
         ],
@@ -38707,7 +38477,6 @@
         "menuPrice": 17000,
         "menuTag": [
             "falafel",
-            "falafel",
             "vegetarian"
         ],
         "dishType": [
@@ -38727,8 +38496,6 @@
         "menuDescription": "gyro,french fries, white sauce",
         "menuPrice": 44000,
         "menuTag": [
-            "gyro",
-            "fries",
             "gyro",
             "fries"
         ],
@@ -40517,7 +40284,6 @@
         "menuPrice": 54545,
         "menuTag": [
             "hand roll",
-            "hand roll",
             "variety"
         ],
         "dishType": [
@@ -40537,7 +40303,6 @@
         "menuDescription": "1 box contains 5. select the 5 menus you want. (not sold individually)",
         "menuPrice": 64545,
         "menuTag": [
-            "hand roll",
             "hand roll",
             "variety"
         ],
@@ -40740,7 +40505,6 @@
         "menuTag": [
             "sandwich",
             "crab stick",
-            "sandwich",
             "sushi"
         ],
         "dishType": [
@@ -40763,7 +40527,6 @@
             "sandwich",
             "tuna",
             "egg",
-            "sandwich",
             "sushi"
         ],
         "dishType": [
@@ -40785,7 +40548,6 @@
         "menuTag": [
             "sandwich",
             "floss",
-            "sandwich",
             "sushi"
         ],
         "dishType": [
@@ -41690,7 +41452,6 @@
         "menuTag": [
             "rice",
             "asian",
-            "rice",
             "chicken",
             "sausage",
             "egg",
@@ -41715,7 +41476,6 @@
         "menuTag": [
             "rice",
             "japanese",
-            "rice",
             "chicken katsu",
             "curry sauce"
         ],
@@ -41739,7 +41499,6 @@
         "menuTag": [
             "rice",
             "japanese",
-            "rice",
             "beef",
             "vegetable",
             "curry sauce"
@@ -41902,7 +41661,6 @@
         "menuTag": [
             "snack",
             "bread",
-            "bread",
             "pepperoni",
             "cheese"
         ],
@@ -42019,7 +41777,6 @@
         "menuTag": [
             "snack",
             "bread",
-            "bread",
             "cheese"
         ],
         "dishType": [
@@ -42040,7 +41797,6 @@
         "menuPrice": 12001,
         "menuTag": [
             "beverage",
-            "tea",
             "tea",
             "lemon"
         ],
@@ -44599,7 +44355,6 @@
         "menuTag": [
             "rice",
             "grilled chicken",
-            "rice",
             "tofu",
             "tempeh",
             "sambal"
@@ -44623,7 +44378,6 @@
         "menuTag": [
             "rice",
             "grilled chicken",
-            "rice",
             "tofu",
             "tempeh",
             "iced tea"
@@ -44671,7 +44425,6 @@
         "menuTag": [
             "rice",
             "fried chicken",
-            "rice",
             "tofu",
             "tempeh",
             "iced tea"
@@ -44697,7 +44450,6 @@
         "menuTag": [
             "rice",
             "fried chicken",
-            "rice",
             "tofu",
             "tempeh",
             "sambal"
@@ -44721,7 +44473,6 @@
         "menuTag": [
             "rice",
             "smashed chicken",
-            "rice",
             "green sambal",
             "spicy"
         ],
@@ -44744,7 +44495,6 @@
         "menuTag": [
             "rice",
             "smashed chicken",
-            "rice",
             "bulk order"
         ],
         "dishType": [
@@ -44766,7 +44516,6 @@
         "menuTag": [
             "rice",
             "fried chicken",
-            "rice",
             "tofu",
             "tempeh",
             "green sambal",
@@ -44793,7 +44542,6 @@
         "menuTag": [
             "rice",
             "chicken",
-            "rice",
             "tofu",
             "tempeh",
             "green chili"
@@ -44817,7 +44565,6 @@
         "menuTag": [
             "rice",
             "fried chicken",
-            "rice",
             "green sauce"
         ],
         "dishType": [
@@ -44962,7 +44709,6 @@
         "menuDescription": "one portion of white rice",
         "menuPrice": 6800,
         "menuTag": [
-            "rice",
             "rice"
         ],
         "dishType": [
@@ -45044,7 +44790,6 @@
         "menuTag": [
             "rice",
             "smashed chicken",
-            "rice",
             "tofu",
             "tempeh",
             "green sambal",
@@ -45071,7 +44816,6 @@
         "menuTag": [
             "rice",
             "smashed chicken",
-            "rice",
             "tofu",
             "tempeh",
             "red chili sauce",
@@ -46238,7 +45982,6 @@
         "menuTag": [
             "noodles",
             "stir-fried",
-            "noodles",
             "chicken",
             "egg"
         ],
@@ -46305,7 +46048,6 @@
         "menuTag": [
             "noodles",
             "chicken",
-            "noodles",
             "soup"
         ],
         "dishType": [
@@ -46327,7 +46069,6 @@
         "menuTag": [
             "noodles",
             "chicken",
-            "noodles",
             "dumplings",
             "soup"
         ],
@@ -46350,7 +46091,6 @@
         "menuTag": [
             "noodles",
             "meatballs",
-            "noodles",
             "yamin"
         ],
         "dishType": [
@@ -46372,8 +46112,7 @@
         "menuTag": [
             "noodles",
             "meatballs",
-            "chicken",
-            "noodles"
+            "chicken"
         ],
         "dishType": [
             "food"
@@ -46415,7 +46154,6 @@
         "menuTag": [
             "noodles",
             "chicken",
-            "noodles",
             "yamin"
         ],
         "dishType": [
@@ -47968,8 +47706,7 @@
         "menuTag": [
             "tea",
             "honey",
-            "date",
-            "tea"
+            "date"
         ],
         "dishType": [
             "drink"
@@ -47989,8 +47726,7 @@
         "menuPrice": 9900,
         "menuTag": [
             "tea",
-            "lemon",
-            "tea"
+            "lemon"
         ],
         "dishType": [
             "drink"
@@ -48010,8 +47746,7 @@
         "menuPrice": 16900,
         "menuTag": [
             "tea",
-            "lychee",
-            "tea"
+            "lychee"
         ],
         "dishType": [
             "drink"
@@ -48054,7 +47789,6 @@
         "menuTag": [
             "coffee",
             "palm sugar",
-            "coffee",
             "milk"
         ],
         "dishType": [
@@ -48716,7 +48450,6 @@
         "menuPrice": 32000,
         "menuTag": [
             "vermicelli",
-            "vermicelli",
             "dumplings",
             "meatballs",
             "chicken"
@@ -48739,7 +48472,6 @@
         "menuPrice": 28000,
         "menuTag": [
             "vermicelli",
-            "vermicelli",
             "meatballs",
             "chicken"
         ],
@@ -48760,7 +48492,6 @@
         "menuDescription": "rice noodles with processed chicken + 2 boiled dumplings",
         "menuPrice": 27000,
         "menuTag": [
-            "vermicelli",
             "vermicelli",
             "dumplings",
             "chicken"
@@ -48783,7 +48514,6 @@
         "menuPrice": 32000,
         "menuTag": [
             "kwetiau",
-            "kwetiau",
             "chicken",
             "meatballs",
             "dumplings"
@@ -48805,7 +48535,6 @@
         "menuDescription": "chicken kwetiau with 2pcs of beef baso",
         "menuPrice": 28000,
         "menuTag": [
-            "kwetiau",
             "kwetiau",
             "chicken",
             "meatballs"
@@ -49455,7 +49184,6 @@
         "menuPrice": 15000,
         "menuTag": [
             "juice",
-            "juice",
             "cold"
         ],
         "dishType": [
@@ -49499,8 +49227,6 @@
         "menuTag": [
             "rose",
             "lemon",
-            "rose",
-            "lemon",
             "soda"
         ],
         "dishType": [
@@ -49521,8 +49247,6 @@
         "menuDescription": "greentea + lemongrass + lemon: green squid (it is very tender +)",
         "menuPrice": 45000,
         "menuTag": [
-            "green tea",
-            "lemongrass",
             "green tea",
             "lemongrass",
             "lemon"
@@ -49572,8 +49296,7 @@
             "beverages",
             "coffee",
             "chocolate",
-            "milk",
-            "coffee"
+            "milk"
         ],
         "dishType": [
             "drink"
@@ -49620,7 +49343,6 @@
             "beverages",
             "coffee",
             "milk",
-            "coffee",
             "creamy"
         ],
         "dishType": [
@@ -50026,8 +49748,6 @@
         "menuTag": [
             "rice",
             "chicken",
-            "chicken",
-            "rice",
             "sambal",
             "intestines"
         ],
@@ -50051,8 +49771,6 @@
         "menuTag": [
             "rice",
             "chicken",
-            "chicken",
-            "rice",
             "sambal",
             "intestines"
         ],
@@ -50076,10 +49794,8 @@
         "menuTag": [
             "rice",
             "chicken",
-            "chicken",
             "egg",
             "cheese",
-            "rice",
             "sambal"
         ],
         "dishType": [
@@ -50103,7 +49819,6 @@
             "rice",
             "noodle",
             "chicken",
-            "noodle",
             "sambal"
         ],
         "dishType": [
@@ -50193,7 +49908,6 @@
         "menuTag": [
             "grilled",
             "smashed chicken",
-            "grilled",
             "ketoprak sauce"
         ],
         "dishType": [
@@ -50217,8 +49931,7 @@
             "grilled",
             "smashed chicken",
             "egg",
-            "mozzarella",
-            "grilled"
+            "mozzarella"
         ],
         "dishType": [
             "food"
@@ -50240,8 +49953,7 @@
         "menuTag": [
             "grilled",
             "indomie",
-            "smashed chicken",
-            "grilled"
+            "smashed chicken"
         ],
         "dishType": [
             "food"
@@ -50265,8 +49977,7 @@
             "indomie",
             "smashed chicken",
             "egg",
-            "mozzarella",
-            "grilled"
+            "mozzarella"
         ],
         "dishType": [
             "food"
@@ -50774,8 +50485,7 @@
         "menuTag": [
             "sambal",
             "spicy",
-            "chili",
-            "spicy"
+            "chili"
         ],
         "dishType": [
             "food"
@@ -50796,8 +50506,7 @@
         "menuTag": [
             "sambal",
             "spicy",
-            "chili",
-            "spicy"
+            "chili"
         ],
         "dishType": [
             "food"
@@ -50819,7 +50528,6 @@
             "sambal",
             "spicy",
             "chili",
-            "spicy",
             "balinese"
         ],
         "dishType": [
@@ -51124,7 +50832,6 @@
         "menuTag": [
             "tea",
             "sweet",
-            "sweet",
             "refreshing"
         ],
         "dishType": [
@@ -51187,7 +50894,6 @@
         "menuPrice": 7727,
         "menuTag": [
             "tea",
-            "sweet",
             "sweet",
             "refreshing"
         ],
@@ -53395,7 +53101,6 @@
         "menuDescription": "white rice 1 portion adalah satu porsi nasi putih yang pulen. nasi ini menjadi pendamping yang sempurna untuk berbagai hidangan utama.",
         "menuPrice": 7000,
         "menuTag": [
-            "rice",
             "rice"
         ],
         "dishType": [
@@ -53415,7 +53120,6 @@
         "menuDescription": "fried tofu adalah tahu yang digoreng hingga keemasan. hidangan ini memiliki tekstur yang renyah di luar namun lembut di dalam, cocok sebagai lauk atau camilan.",
         "menuPrice": 2500,
         "menuTag": [
-            "tofu",
             "tofu"
         ],
         "dishType": [
@@ -53435,7 +53139,6 @@
         "menuDescription": "tempe goreng adalah tempe yang digoreng hingga kecokelatan. makanan ini kaya akan protein nabati dan memiliki rasa yang gurih, menjadikannya lauk yang populer.",
         "menuPrice": 2500,
         "menuTag": [
-            "tempeh",
             "tempeh"
         ],
         "dishType": [
@@ -54710,7 +54413,6 @@
         "menuPrice": 27500,
         "menuTag": [
             "tea",
-            "tea",
             "cream"
         ],
         "dishType": [
@@ -54731,7 +54433,6 @@
         "menuDescription": "milk coffee with soft foam cream and a fragrant aroma of stock",
         "menuPrice": 27500,
         "menuTag": [
-            "coffee",
             "coffee",
             "milk",
             "cream"
@@ -54754,7 +54455,6 @@
         "menuDescription": "codbrew with peach and lychee combined with hydroco",
         "menuPrice": 31900,
         "menuTag": [
-            "coffee",
             "coffee",
             "peach",
             "lychee",
@@ -54802,7 +54502,6 @@
         "menuDescription": "chocolate liqued with hydro coco and waven kalpa topping",
         "menuPrice": 31900,
         "menuTag": [
-            "chocolate",
             "chocolate",
             "coconut"
         ],
@@ -55512,7 +55211,6 @@
         "menuPrice": 25300,
         "menuTag": [
             "coffee",
-            "coffee",
             "milk"
         ],
         "dishType": [
@@ -55533,7 +55231,6 @@
         "menuDescription": "double espresso",
         "menuPrice": 27500,
         "menuTag": [
-            "coffee",
             "coffee",
             "espresso"
         ],
@@ -55556,7 +55253,6 @@
         "menuPrice": 31900,
         "menuTag": [
             "coffee",
-            "coffee",
             "milk",
             "durian"
         ],
@@ -55578,7 +55274,6 @@
         "menuDescription": "ice coffee flavor-lua",
         "menuPrice": 29700,
         "menuTag": [
-            "coffee",
             "coffee",
             "kahlua"
         ],
@@ -57030,7 +56725,6 @@
             "halal certified",
             "coffee",
             "snack",
-            "coffee",
             "milk"
         ],
         "dishType": [
@@ -57054,7 +56748,6 @@
             "halal certified",
             "coffee",
             "snack",
-            "coffee",
             "milk",
             "palm sugar"
         ],
@@ -57079,7 +56772,6 @@
             "halal certified",
             "coffee",
             "snack",
-            "coffee",
             "milk",
             "palm sugar"
         ],
@@ -57103,8 +56795,7 @@
             "beverages",
             "halal certified",
             "coffee",
-            "snack",
-            "coffee"
+            "snack"
         ],
         "dishType": [
             "drink"
@@ -57127,7 +56818,6 @@
             "halal certified",
             "coffee",
             "snack",
-            "coffee",
             "milk"
         ],
         "dishType": [
@@ -57151,7 +56841,6 @@
             "halal certified",
             "coffee",
             "snack",
-            "coffee",
             "milk",
             "cream"
         ],
@@ -57176,7 +56865,6 @@
             "halal certified",
             "coffee",
             "snack",
-            "coffee",
             "milk",
             "caramel"
         ],
@@ -57201,7 +56889,6 @@
             "halal certified",
             "coffee",
             "snack",
-            "coffee",
             "milk",
             "hazelnut"
         ],
@@ -57226,7 +56913,6 @@
             "halal certified",
             "coffee",
             "snack",
-            "coffee",
             "milk",
             "vanilla"
         ],
@@ -57251,7 +56937,6 @@
             "halal certified",
             "coffee",
             "snack",
-            "coffee",
             "milk",
             "pandan"
         ],
@@ -57276,7 +56961,6 @@
             "halal certified",
             "coffee",
             "snack",
-            "coffee",
             "avocado",
             "milk"
         ],
@@ -57301,7 +56985,6 @@
             "halal certified",
             "coffee",
             "snack",
-            "coffee",
             "milo",
             "milk"
         ],
@@ -57326,7 +57009,6 @@
             "halal certified",
             "coffee",
             "snack",
-            "coffee",
             "chocolate",
             "milk"
         ],
@@ -57351,7 +57033,6 @@
             "halal certified",
             "coffee",
             "snack",
-            "coffee",
             "milo",
             "milk",
             "macchiato"
@@ -59111,8 +58792,7 @@
             "coffee",
             "caramel",
             "iced",
-            "milk",
-            "caramel"
+            "milk"
         ],
         "dishType": [
             "drink"
@@ -60792,8 +60472,7 @@
         "menuTag": [
             "macchiato",
             "matcha",
-            "latte",
-            "macchiato"
+            "latte"
         ],
         "dishType": [
             "drink"
@@ -60815,8 +60494,7 @@
         "menuTag": [
             "macchiato",
             "matcha",
-            "peach",
-            "macchiato"
+            "peach"
         ],
         "dishType": [
             "drink"
@@ -60838,7 +60516,6 @@
         "menuTag": [
             "macchiato",
             "houjicha",
-            "macchiato",
             "roasted"
         ],
         "dishType": [
@@ -60860,8 +60537,7 @@
         "menuPrice": 29000,
         "menuTag": [
             "macchiato",
-            "houjicha",
-            "macchiato"
+            "houjicha"
         ],
         "dishType": [
             "drink"
@@ -60882,8 +60558,7 @@
         "menuPrice": 28000,
         "menuTag": [
             "macchiato",
-            "chocolate",
-            "macchiato"
+            "chocolate"
         ],
         "dishType": [
             "drink"
@@ -60904,8 +60579,7 @@
         "menuPrice": 32000,
         "menuTag": [
             "macchiato",
-            "chocolate",
-            "macchiato"
+            "chocolate"
         ],
         "dishType": [
             "drink"
@@ -60927,8 +60601,7 @@
         "menuTag": [
             "macchiato",
             "chocolate",
-            "butter",
-            "macchiato"
+            "butter"
         ],
         "dishType": [
             "drink"
@@ -60950,8 +60623,7 @@
         "menuTag": [
             "macchiato",
             "chocolate",
-            "butter",
-            "macchiato"
+            "butter"
         ],
         "dishType": [
             "drink"
@@ -60972,8 +60644,7 @@
         "menuPrice": 28000,
         "menuTag": [
             "macchiato",
-            "avocado",
-            "macchiato"
+            "avocado"
         ],
         "dishType": [
             "drink"
@@ -60994,8 +60665,7 @@
         "menuPrice": 32000,
         "menuTag": [
             "macchiato",
-            "avocado",
-            "macchiato"
+            "avocado"
         ],
         "dishType": [
             "drink"
@@ -61017,8 +60687,7 @@
         "menuTag": [
             "macchiato",
             "avocado",
-            "rum",
-            "macchiato"
+            "rum"
         ],
         "dishType": [
             "drink"
@@ -61040,8 +60709,7 @@
         "menuTag": [
             "macchiato",
             "avocado",
-            "rum",
-            "macchiato"
+            "rum"
         ],
         "dishType": [
             "drink"
@@ -61062,8 +60730,7 @@
         "menuPrice": 32000,
         "menuTag": [
             "macchiato",
-            "red velvet",
-            "macchiato"
+            "red velvet"
         ],
         "dishType": [
             "drink"
@@ -61918,9 +61585,7 @@
         "menuTag": [
             "coffee",
             "biscoff",
-            "coffee",
-            "latte",
-            "biscoff"
+            "latte"
         ],
         "dishType": [
             "drink"
@@ -61941,9 +61606,7 @@
         "menuTag": [
             "coffee",
             "biscoff",
-            "coffee",
-            "latte",
-            "biscoff"
+            "latte"
         ],
         "dishType": [
             "drink"
@@ -61965,7 +61628,6 @@
             "yoghurt",
             "fruit",
             "mango",
-            "yoghurt",
             "jelly"
         ],
         "dishType": [
@@ -61989,7 +61651,6 @@
             "yoghurt",
             "fruit",
             "mango",
-            "yoghurt",
             "jelly"
         ],
         "dishType": [
@@ -62013,7 +61674,6 @@
             "yoghurt",
             "fruit",
             "mango",
-            "yoghurt",
             "jelly"
         ],
         "dishType": [
@@ -62037,7 +61697,6 @@
             "yoghurt",
             "fruit",
             "kiwi",
-            "yoghurt",
             "jelly"
         ],
         "dishType": [
@@ -62061,7 +61720,6 @@
             "yoghurt",
             "fruit",
             "strawberry",
-            "yoghurt",
             "jelly"
         ],
         "dishType": [
@@ -62085,7 +61743,6 @@
             "yoghurt",
             "fruit",
             "strawberry",
-            "yoghurt",
             "jelly"
         ],
         "dishType": [
@@ -62109,7 +61766,6 @@
             "yoghurt",
             "fruit",
             "mixberry",
-            "yoghurt",
             "jelly"
         ],
         "dishType": [
@@ -62133,7 +61789,6 @@
             "yoghurt",
             "fruit",
             "mixberry",
-            "yoghurt",
             "jelly"
         ],
         "dishType": [
@@ -63850,8 +63505,7 @@
         "menuPrice": 19000,
         "menuTag": [
             "ice cream",
-            "biscoff",
-            "ice cream"
+            "biscoff"
         ],
         "dishType": [
             "food"
@@ -63872,8 +63526,7 @@
         "menuTag": [
             "ice cream",
             "salted caramel",
-            "boba",
-            "ice cream"
+            "boba"
         ],
         "dishType": [
             "food"
@@ -63895,8 +63548,7 @@
         "menuTag": [
             "ice cream",
             "chocolate",
-            "boba",
-            "ice cream"
+            "boba"
         ],
         "dishType": [
             "food"
@@ -63917,8 +63569,7 @@
         "menuTag": [
             "ice cream",
             "mango",
-            "boba",
-            "ice cream"
+            "boba"
         ],
         "dishType": [
             "food"
@@ -63938,7 +63589,6 @@
         "menuDescription": "xichocolate signature is xiboba's special chocolate drink, likely featuring a rich and creamy chocolate base. this beverage is perfect for chocolate lovers seeking a indulgent treat.",
         "menuPrice": 18000,
         "menuTag": [
-            "chocolate",
             "chocolate"
         ],
         "dishType": [
@@ -63958,7 +63608,6 @@
         "menuDescription": "xichocolate coffee combines the rich flavors of chocolate and coffee in one delightful beverage. this drink is perfect for those who enjoy the bitter notes of coffee with the sweetness of chocolate.",
         "menuPrice": 20000,
         "menuTag": [
-            "chocolate",
             "chocolate",
             "coffee"
         ],
@@ -64046,7 +63695,6 @@
         "menuTag": [
             "coffee",
             "oat milk",
-            "coffee",
             "caramel",
             "whipped cream"
         ],
@@ -64068,7 +63716,6 @@
         "menuDescription": "coffee with a mixture of milk and caramel",
         "menuPrice": 14091,
         "menuTag": [
-            "coffee",
             "coffee",
             "milk",
             "caramel"
@@ -64093,7 +63740,6 @@
         "menuTag": [
             "coffee",
             "palm sugar",
-            "coffee",
             "milk",
             "ice"
         ],
@@ -66453,8 +66099,7 @@
         "menuPrice": 38880,
         "menuTag": [
             "dimsum",
-            "chicken",
-            "dimsum"
+            "chicken"
         ],
         "dishType": [
             "food"
@@ -66496,8 +66141,7 @@
         "menuPrice": 27945,
         "menuTag": [
             "dimsum",
-            "chicken",
-            "dimsum"
+            "chicken"
         ],
         "dishType": [
             "food"
@@ -66539,8 +66183,7 @@
         "menuPrice": 20169,
         "menuTag": [
             "dimsum",
-            "chicken",
-            "dimsum"
+            "chicken"
         ],
         "dishType": [
             "food"
@@ -67317,8 +66960,7 @@
         "menuPrice": 20000,
         "menuTag": [
             "coffee",
-            "plantbased milk",
-            "coffee"
+            "plantbased milk"
         ],
         "dishType": [
             "drink"
@@ -68111,7 +67753,6 @@
         "menuPrice": 22050,
         "menuTag": [
             "hotdog",
-            "hotdog",
             "cheese",
             "sausage",
             "lettuce",
@@ -68162,7 +67803,6 @@
         "menuTag": [
             "hotdog",
             "chili",
-            "hotdog",
             "sausage",
             "lettuce",
             "pickles"
@@ -68187,7 +67827,6 @@
         "menuTag": [
             "fries",
             "sausage",
-            "fries",
             "salad"
         ],
         "dishType": [
@@ -68209,7 +67848,6 @@
         "menuTag": [
             "chicken",
             "rice",
-            "chicken",
             "tempeh",
             "tofu",
             "sambal"
@@ -68234,7 +67872,6 @@
         "menuTag": [
             "chicken",
             "rice",
-            "chicken",
             "tempeh",
             "tofu",
             "sambal"
@@ -68259,7 +67896,6 @@
         "menuTag": [
             "duck",
             "rice",
-            "duck",
             "sambal"
         ],
         "dishType": [
@@ -68282,7 +67918,6 @@
         "menuTag": [
             "chicken",
             "rice",
-            "chicken",
             "sambal"
         ],
         "dishType": [
@@ -68305,7 +67940,6 @@
         "menuTag": [
             "chicken",
             "rice",
-            "chicken",
             "sambal"
         ],
         "dishType": [
@@ -68328,7 +67962,6 @@
         "menuTag": [
             "chicken",
             "rice",
-            "chicken",
             "sambal"
         ],
         "dishType": [
@@ -68351,7 +67984,6 @@
         "menuTag": [
             "chicken",
             "rice",
-            "chicken",
             "honey",
             "sambal"
         ],
@@ -68375,7 +68007,6 @@
         "menuTag": [
             "chicken",
             "rice",
-            "chicken",
             "water",
             "tempeh",
             "tofu",
@@ -68402,7 +68033,6 @@
         "menuTag": [
             "chicken",
             "rice",
-            "chicken",
             "water",
             "tofu",
             "tempeh",
@@ -68447,7 +68077,6 @@
         "menuDescription": "1 duck head adalah hidangan khas dari nasi bebek&ayam bakar ibu musliah gambir. kepala bebek yang dimasak dengan bumbu khas menciptakan rasa yang gurih dan lezat.",
         "menuPrice": 3000,
         "menuTag": [
-            "duck",
             "duck"
         ],
         "dishType": [
@@ -68469,7 +68098,6 @@
         "menuTag": [
             "duck",
             "rice",
-            "duck",
             "spices"
         ],
         "dishType": [
@@ -68492,7 +68120,6 @@
         "menuTag": [
             "chicken",
             "rice",
-            "chicken",
             "spices"
         ],
         "dishType": [
@@ -68515,7 +68142,6 @@
         "menuTag": [
             "duck",
             "rice",
-            "duck",
             "sambal"
         ],
         "dishType": [
@@ -68538,7 +68164,6 @@
         "menuTag": [
             "duck",
             "rice",
-            "duck",
             "liver",
             "gizzard",
             "spices"
@@ -69689,7 +69314,6 @@
         "menuPrice": 18000,
         "menuTag": [
             "noodles",
-            "noodles",
             "egg",
             "chicken",
             "meatballs"
@@ -69711,7 +69335,6 @@
         "menuDescription": "fried noodles, doused with a variety of meatballs + sausage + chicken and a variety of savory vegetables",
         "menuPrice": 25000,
         "menuTag": [
-            "noodles",
             "noodles",
             "meatballs",
             "sausage",
@@ -69919,7 +69542,6 @@
         "menuPrice": 22500,
         "menuTag": [
             "noodles",
-            "noodles",
             "egg",
             "chicken",
             "meatballs"
@@ -69942,7 +69564,6 @@
         "menuPrice": 22500,
         "menuTag": [
             "noodles",
-            "noodles",
             "egg",
             "shrimp",
             "meatballs"
@@ -69964,7 +69585,6 @@
         "menuDescription": "fried noodles + scrambled egg + vegetables + delicious beef and meatballs.",
         "menuPrice": 22500,
         "menuTag": [
-            "noodles",
             "noodles",
             "egg",
             "beef",
@@ -71366,7 +70986,6 @@
             "vegetable",
             "chicken",
             "mixed vegetables",
-            "chicken",
             "broth"
         ],
         "dishType": [
@@ -71389,7 +71008,6 @@
             "vegetable",
             "seafood",
             "mixed vegetables",
-            "seafood",
             "broth"
         ],
         "dishType": [
@@ -71410,7 +71028,6 @@
         "menuPrice": 20000,
         "menuTag": [
             "vegetable",
-            "tofu",
             "tofu",
             "vegetables",
             "beef broth"
@@ -71435,7 +71052,6 @@
             "vegetable",
             "chicken",
             "tofu",
-            "tofu",
             "vegetables",
             "chicken broth"
         ],
@@ -71458,7 +71074,6 @@
         "menuTag": [
             "vegetable",
             "seafood",
-            "tofu",
             "tofu",
             "vegetables",
             "seafood broth"
@@ -71483,7 +71098,6 @@
             "vegetable",
             "beef",
             "tofu",
-            "tofu",
             "vegetables",
             "beef broth"
         ],
@@ -71507,7 +71121,6 @@
             "vegetable",
             "seafood",
             "pakcoy",
-            "seafood",
             "stir-fry"
         ],
         "dishType": [
@@ -71639,7 +71252,6 @@
         "menuPrice": 39091,
         "menuTag": [
             "rice",
-            "chicken",
             "chicken",
             "bulgogi sauce"
         ],
@@ -71778,10 +71390,7 @@
         "menuTag": [
             "rice",
             "seafood",
-            "tofu",
-            "rice",
-            "tofu",
-            "seafood"
+            "tofu"
         ],
         "dishType": [
             "food"
@@ -71802,10 +71411,7 @@
         "menuTag": [
             "rice",
             "chicken",
-            "tofu",
-            "rice",
-            "tofu",
-            "chicken"
+            "tofu"
         ],
         "dishType": [
             "food"
@@ -71826,10 +71432,7 @@
         "menuTag": [
             "rice",
             "beef",
-            "tofu",
-            "rice",
-            "tofu",
-            "beef"
+            "tofu"
         ],
         "dishType": [
             "food"
@@ -71848,8 +71451,6 @@
         "menuDescription": "mie ayam teriyaki adalah hidangan fusion yang menggabungkan mie dengan ayam bumbu teriyaki khas jepang. perpaduan ini menciptakan rasa yang unik dan menggugah selera.",
         "menuPrice": 39091,
         "menuTag": [
-            "noodles",
-            "chicken",
             "noodles",
             "chicken",
             "teriyaki"
@@ -71872,8 +71473,6 @@
         "menuDescription": "rice + black pepper chicken menyajikan nasi dengan ayam yang dimasak dengan saus lada hitam yang kaya rasa. hidangan ini menawarkan cita rasa yang kuat dan menggugah selera.",
         "menuPrice": 39091,
         "menuTag": [
-            "rice",
-            "chicken",
             "rice",
             "chicken",
             "black pepper"
@@ -72507,7 +72106,6 @@
         "menuPrice": 52727,
         "menuTag": [
             "chicken",
-            "chicken",
             "steak",
             "flour"
         ],
@@ -72529,7 +72127,6 @@
         "menuPrice": 53636,
         "menuTag": [
             "beef",
-            "beef",
             "steak",
             "butter"
         ],
@@ -72550,7 +72147,6 @@
         "menuDescription": "experience solaria's flour beef steak, a delightful twist on a classic. this portion offers a tender beef steak coated in seasoned flour, pan-fried to achieve a crispy exterior while maintaining a juicy interior.",
         "menuPrice": 53636,
         "menuTag": [
-            "beef",
             "beef",
             "steak",
             "flour"
@@ -72594,7 +72190,6 @@
         "menuPrice": 49091,
         "menuTag": [
             "chicken",
-            "chicken",
             "mushroom",
             "stir-fry"
         ],
@@ -72615,7 +72210,6 @@
         "menuDescription": "ayam cah capri is a delightful chicken dish from solaria. this portion presents tender chicken pieces stir-fried with crisp vegetables in a savory sauce, offering a perfect balance of flavors and textures.",
         "menuPrice": 49091,
         "menuTag": [
-            "chicken",
             "chicken",
             "capri",
             "stir-fry"
@@ -72638,7 +72232,6 @@
         "menuPrice": 49091,
         "menuTag": [
             "chicken",
-            "chicken",
             "cauliflower",
             "stir-fry"
         ],
@@ -72660,7 +72253,6 @@
         "menuPrice": 49091,
         "menuTag": [
             "egg",
-            "egg",
             "omelette"
         ],
         "dishType": [
@@ -72680,7 +72272,6 @@
         "menuDescription": "cap cay seafood is a delicious seafood variation of the popular indonesian dish from solaria. this flavorful portion combines a variety of fresh vegetables with assorted seafood, stir-fried in a savory sauce.",
         "menuPrice": 54545,
         "menuTag": [
-            "seafood",
             "seafood",
             "vegetables",
             "stir-fry"
@@ -73259,8 +72850,7 @@
         "menuPrice": 26364,
         "menuTag": [
             "vermicelli",
-            "chicken",
-            "vermicelli"
+            "chicken"
         ],
         "dishType": [
             "food"
@@ -73281,8 +72871,7 @@
         "menuTag": [
             "vermicelli",
             "meatballs",
-            "chicken",
-            "vermicelli"
+            "chicken"
         ],
         "dishType": [
             "food"
@@ -73322,7 +72911,6 @@
         "menuDescription": "bihun siram ayam menawarkan alternatif yang lebih ringan dari bihun goreng. bihun lembut disiram dengan kuah kental yang gurih dan potongan ayam yang juicy. hidangan ini cocok bagi yang menginginkan cita rasa yang lebih ringan namun tetap memuaskan.",
         "menuPrice": 40000,
         "menuTag": [
-            "vermicelli",
             "vermicelli",
             "chicken",
             "soup"
@@ -73388,7 +72976,6 @@
         "menuTag": [
             "vermicelli",
             "beef",
-            "vermicelli",
             "soup"
         ],
         "dishType": [
@@ -75244,8 +74831,7 @@
         "menuPrice": 33000,
         "menuTag": [
             "chicken",
-            "pepes",
-            "chicken"
+            "pepes"
         ],
         "dishType": [
             "food"
@@ -75692,8 +75278,7 @@
         "menuPrice": 33000,
         "menuTag": [
             "beef",
-            "soto",
-            "beef"
+            "soto"
         ],
         "dishType": [
             "food"
@@ -77006,8 +76591,6 @@
         "menuTag": [
             "rice",
             "duck",
-            "duck",
-            "rice",
             "spicy"
         ],
         "dishType": [
@@ -77030,8 +76613,6 @@
         "menuTag": [
             "rice",
             "chicken",
-            "chicken",
-            "rice",
             "spicy"
         ],
         "dishType": [
@@ -77055,7 +76636,6 @@
             "rice",
             "chicken",
             "chicken skin",
-            "rice",
             "spicy"
         ],
         "dishType": [
@@ -77079,7 +76659,6 @@
             "rice",
             "duck",
             "duck intestine",
-            "rice",
             "spicy"
         ],
         "dishType": [
@@ -77103,7 +76682,6 @@
             "rice",
             "duck",
             "duck skin",
-            "rice",
             "spicy"
         ],
         "dishType": [
@@ -77126,8 +76704,6 @@
         "menuTag": [
             "rice",
             "duck",
-            "duck",
-            "rice",
             "tempeh",
             "tofu"
         ],
@@ -77150,10 +76726,8 @@
         "menuTag": [
             "rice",
             "duck",
-            "duck",
             "liver",
-            "gizzard",
-            "rice"
+            "gizzard"
         ],
         "dishType": [
             "food"
@@ -77172,7 +76746,6 @@
         "menuDescription": "1pcs",
         "menuPrice": 18500,
         "menuTag": [
-            "duck",
             "duck",
             "spicy"
         ],
@@ -78038,7 +77611,6 @@
         "menuPrice": 199900,
         "menuTag": [
             "padang",
-            "rendang",
             "rendang"
         ],
         "dishType": [
@@ -78103,7 +77675,6 @@
         "menuPrice": 49000,
         "menuTag": [
             "salad",
-            "rendang",
             "rendang",
             "sayuran"
         ],
@@ -79615,8 +79186,7 @@
         "menuPrice": 69000,
         "menuTag": [
             "roasted pork",
-            "siobak",
-            "roasted pork"
+            "siobak"
         ],
         "dishType": [
             "food"
@@ -79682,8 +79252,7 @@
         "menuPrice": 138000,
         "menuTag": [
             "roasted pork",
-            "siobak",
-            "roasted pork"
+            "siobak"
         ],
         "dishType": [
             "food"
@@ -79724,8 +79293,7 @@
         "menuPrice": 172500,
         "menuTag": [
             "roasted pork",
-            "siobak",
-            "roasted pork"
+            "siobak"
         ],
         "dishType": [
             "food"
@@ -79745,8 +79313,7 @@
         "menuPrice": 345000,
         "menuTag": [
             "roasted pork",
-            "siobak",
-            "roasted pork"
+            "siobak"
         ],
         "dishType": [
             "food"
@@ -79812,8 +79379,7 @@
         "menuPrice": 8000,
         "menuTag": [
             "egg",
-            "soy sauce",
-            "egg"
+            "soy sauce"
         ],
         "dishType": [
             "food"
@@ -79854,8 +79420,7 @@
         "menuPrice": 13000,
         "menuTag": [
             "rice",
-            "hainam",
-            "rice"
+            "hainam"
         ],
         "dishType": [
             "food"
@@ -79894,7 +79459,6 @@
         "menuDescription": "plastic crackers are a crispy and addictive snack offered at nasi campur afuk - kebon kelapa. these light and crunchy crackers provide a satisfying texture contrast to the restaurant's main dishes.",
         "menuPrice": 18000,
         "menuTag": [
-            "crackers",
             "crackers"
         ],
         "dishType": [
@@ -79914,7 +79478,6 @@
         "menuDescription": "2l",
         "menuPrice": 88000,
         "menuTag": [
-            "crackers",
             "crackers",
             "jar"
         ],
@@ -79979,8 +79542,7 @@
         "menuPrice": 399000,
         "menuTag": [
             "rice cone",
-            "tumpeng",
-            "rice cone"
+            "tumpeng"
         ],
         "dishType": [
             "food"
@@ -80553,8 +80115,7 @@
         "menuPrice": 22000,
         "menuTag": [
             "meatballs",
-            "fried",
-            "meatballs"
+            "fried"
         ],
         "dishType": [
             "food"
@@ -80574,8 +80135,7 @@
         "menuPrice": 12000,
         "menuTag": [
             "rice",
-            "hainam",
-            "rice"
+            "hainam"
         ],
         "dishType": [
             "food"
@@ -80596,7 +80156,6 @@
         "menuTag": [
             "siomay",
             "chicken",
-            "siomay",
             "chocolate"
         ],
         "dishType": [
@@ -80618,8 +80177,7 @@
         "menuPrice": 22000,
         "menuTag": [
             "dumplings",
-            "fried",
-            "dumplings"
+            "fried"
         ],
         "dishType": [
             "food"
@@ -80684,7 +80242,6 @@
         "menuTag": [
             "chicken",
             "crispy",
-            "chicken",
             "sambal"
         ],
         "dishType": [
@@ -80707,7 +80264,6 @@
         "menuTag": [
             "noodles",
             "vegetarian",
-            "noodles",
             "egg"
         ],
         "dishType": [
@@ -81037,7 +80593,6 @@
         "menuPrice": 64000,
         "menuTag": [
             "pork",
-            "pork",
             "sweet soy sauce"
         ],
         "dishType": [
@@ -81081,7 +80636,6 @@
         "menuDescription": "tolong tulis diletakkan di menu apa, jika tidak akan kami letakkan random :)",
         "menuPrice": 7000,
         "menuTag": [
-            "egg",
             "egg"
         ],
         "dishType": [
@@ -81102,7 +80656,6 @@
         "menuPrice": 7000,
         "menuTag": [
             "beef",
-            "beef",
             "side dish"
         ],
         "dishType": [
@@ -81122,7 +80675,6 @@
         "menuDescription": "yuk plus white rice so you can add full",
         "menuPrice": 6000,
         "menuTag": [
-            "rice",
             "rice",
             "staple"
         ],
@@ -81186,7 +80738,6 @@
         "menuPrice": 7500,
         "menuTag": [
             "tea",
-            "tea",
             "cold drink"
         ],
         "dishType": [
@@ -81206,7 +80757,6 @@
         "menuDescription": "mineral water (600ml) is a hydrating beverage option available at cuboy babi goreng - thamrin. this 600ml bottle of pure mineral water is ideal for staying refreshed throughout your dining experience.",
         "menuPrice": 6000,
         "menuTag": [
-            "water",
             "water",
             "hydration"
         ],
@@ -81250,8 +80800,7 @@
         "menuTag": [
             "noodles",
             "duck",
-            "soup",
-            "noodles"
+            "soup"
         ],
         "dishType": [
             "food"
@@ -81357,8 +80906,7 @@
         "menuTag": [
             "noodles",
             "mushroom chicken",
-            "curry",
-            "noodles"
+            "curry"
         ],
         "dishType": [
             "food"
@@ -81379,8 +80927,7 @@
         "menuPrice": 55000,
         "menuTag": [
             "soup",
-            "kampong chicken",
-            "soup"
+            "kampong chicken"
         ],
         "dishType": [
             "food"
@@ -82740,7 +82287,6 @@
             "sausage",
             "egg",
             "fried rice",
-            "sausage",
             "omelette"
         ],
         "dishType": [
@@ -82764,7 +82310,6 @@
             "sausage",
             "egg",
             "fried rice",
-            "sausage",
             "fried egg"
         ],
         "dishType": [
@@ -82788,7 +82333,6 @@
             "meatball",
             "egg",
             "fried rice",
-            "meatball",
             "omelette"
         ],
         "dishType": [
@@ -82812,7 +82356,6 @@
             "meatball",
             "egg",
             "fried rice",
-            "meatball",
             "sunny side up"
         ],
         "dishType": [
@@ -82836,7 +82379,6 @@
             "meatball",
             "egg",
             "fried rice",
-            "meatball",
             "scrambled egg"
         ],
         "dishType": [
@@ -82858,7 +82400,6 @@
         "menuTag": [
             "rice",
             "egg",
-            "rice",
             "omelette"
         ],
         "dishType": [
@@ -82880,7 +82421,6 @@
         "menuTag": [
             "rice",
             "egg",
-            "rice",
             "sunny side up"
         ],
         "dishType": [
@@ -82945,8 +82485,7 @@
             "noodles",
             "egg",
             "instant noodles",
-            "fried noodles",
-            "egg"
+            "fried noodles"
         ],
         "dishType": [
             "food"
@@ -82989,8 +82528,7 @@
             "noodles",
             "egg",
             "instant noodles",
-            "fried noodles",
-            "egg"
+            "fried noodles"
         ],
         "dishType": [
             "food"
@@ -83033,8 +82571,7 @@
             "noodles",
             "egg",
             "instant noodles",
-            "chicken curry flavor",
-            "egg"
+            "chicken curry flavor"
         ],
         "dishType": [
             "food"
@@ -83079,8 +82616,7 @@
             "noodles",
             "egg",
             "instant noodles",
-            "soto flavor",
-            "egg"
+            "soto flavor"
         ],
         "dishType": [
             "food"
@@ -83123,8 +82659,7 @@
             "noodles",
             "egg",
             "instant noodles",
-            "chicken onion flavor",
-            "egg"
+            "chicken onion flavor"
         ],
         "dishType": [
             "food"
@@ -83170,7 +82705,6 @@
             "bread",
             "green bean",
             "black sticky rice",
-            "cheese",
             "white bread"
         ],
         "dishType": [
@@ -83197,7 +82731,6 @@
             "bread",
             "green bean",
             "black sticky rice",
-            "milk",
             "white bread"
         ],
         "dishType": [
@@ -83883,7 +83416,6 @@
         "menuTag": [
             "signature",
             "chocolate",
-            "chocolate",
             "rose",
             "latte"
         ],
@@ -83906,7 +83438,6 @@
         "menuPrice": 33636,
         "menuTag": [
             "signature",
-            "matcha",
             "matcha",
             "strawberry",
             "cream"
@@ -83931,8 +83462,7 @@
         "menuTag": [
             "signature",
             "bottled beverages",
-            "bottled",
-            "signature"
+            "bottled"
         ],
         "dishType": [
             "drink"
@@ -83954,7 +83484,6 @@
             "signature",
             "bottled beverages",
             "bottled",
-            "signature",
             "large"
         ],
         "dishType": [
@@ -84023,8 +83552,7 @@
             "black",
             "bottled beverages",
             "coffee",
-            "bottled",
-            "black"
+            "bottled"
         ],
         "dishType": [
             "drink"
@@ -84157,7 +83685,6 @@
         "menuPrice": 26364,
         "menuTag": [
             "chocolate",
-            "chocolate",
             "milk",
             "cream"
         ],
@@ -84181,7 +83708,6 @@
         "menuTag": [
             "chocolate",
             "coffee",
-            "chocolate",
             "toblerone",
             "milk"
         ],
@@ -84204,7 +83730,6 @@
         "menuPrice": 61818,
         "menuTag": [
             "chocolate",
-            "chocolate",
             "bottled"
         ],
         "dishType": [
@@ -84226,7 +83751,6 @@
         "menuTag": [
             "chocolate",
             "bottled beverages",
-            "chocolate",
             "bottled",
             "large"
         ],
@@ -84247,7 +83771,6 @@
         "menuDescription": "paduan matcha premium dengan whipped cream, dan vanilla",
         "menuPrice": 28182,
         "menuTag": [
-            "matcha",
             "matcha",
             "cream",
             "vanilla"
@@ -84271,7 +83794,6 @@
         "menuPrice": 31818,
         "menuTag": [
             "matcha",
-            "matcha",
             "coffee",
             "milk"
         ],
@@ -84294,7 +83816,6 @@
         "menuPrice": 33636,
         "menuTag": [
             "matcha",
-            "matcha",
             "palm sugar",
             "milk"
         ],
@@ -84316,7 +83837,6 @@
         "menuDescription": "matcha dengan rose syrup, dengan rose flakes diatasnya",
         "menuPrice": 34545,
         "menuTag": [
-            "matcha",
             "matcha",
             "rose",
             "tea",
@@ -84342,7 +83862,6 @@
         "menuTag": [
             "matcha",
             "bottled beverages",
-            "matcha",
             "bottled"
         ],
         "dishType": [
@@ -84362,7 +83881,6 @@
         "menuDescription": "minuman matcha pilihanmu dalam 1l bottle",
         "menuPrice": 85455,
         "menuTag": [
-            "matcha",
             "matcha",
             "bottled",
             "large"
@@ -85394,8 +84912,7 @@
         "menuPrice": 32273,
         "menuTag": [
             "chicken",
-            "salted egg",
-            "chicken"
+            "salted egg"
         ],
         "dishType": [
             "food"
@@ -85416,7 +84933,6 @@
         "menuTag": [
             "chicken",
             "salted egg",
-            "chicken",
             "spicy"
         ],
         "dishType": [
@@ -85439,7 +84955,6 @@
         "menuTag": [
             "chicken",
             "salted egg",
-            "chicken",
             "citrus"
         ],
         "dishType": [
@@ -85463,7 +84978,6 @@
         "menuTag": [
             "chicken",
             "salted egg",
-            "chicken",
             "signature"
         ],
         "dishType": [
@@ -85710,8 +85224,7 @@
             "salted egg",
             "chicken only",
             "chicken",
-            "egg",
-            "spicy"
+            "egg"
         ],
         "dishType": [
             "food"
@@ -85917,7 +85430,6 @@
         "menuPrice": 8636,
         "menuTag": [
             "rice",
-            "rice",
             "staple"
         ],
         "dishType": [
@@ -86002,7 +85514,6 @@
         "menuPrice": 1818,
         "menuTag": [
             "chili",
-            "chili",
             "spicy"
         ],
         "dishType": [
@@ -86069,8 +85580,7 @@
         "menuTag": [
             "chicken",
             "crispy",
-            "fried",
-            "crispy"
+            "fried"
         ],
         "dishType": [
             "food"
@@ -86091,8 +85601,6 @@
         "menuTag": [
             "sandwich",
             "chicken",
-            "cheese",
-            "sandwich",
             "cheese"
         ],
         "dishType": [
@@ -86112,8 +85620,6 @@
         "menuDescription": "spicy sandwich",
         "menuPrice": 35000,
         "menuTag": [
-            "sandwich",
-            "spicy",
             "sandwich",
             "spicy"
         ],
@@ -86137,9 +85643,6 @@
             "sandwich",
             "chicken",
             "cheese",
-            "spicy",
-            "sandwich",
-            "cheese",
             "spicy"
         ],
         "dishType": [
@@ -86160,8 +85663,6 @@
         "menuDescription": "2 cajun fries regular",
         "menuPrice": 35000,
         "menuTag": [
-            "fries",
-            "cajun",
             "fries",
             "cajun"
         ],
@@ -86255,8 +85756,6 @@
         "menuTag": [
             "wings",
             "bbq",
-            "bulgogi",
-            "wings",
             "bulgogi"
         ],
         "dishType": [
@@ -86279,7 +85778,6 @@
         "menuTag": [
             "wings",
             "sweet and sour",
-            "wings",
             "sauce"
         ],
         "dishType": [
@@ -86302,7 +85800,6 @@
         "menuTag": [
             "wings",
             "hot sauce",
-            "wings",
             "spicy"
         ],
         "dishType": [
@@ -86324,8 +85821,6 @@
         "menuTag": [
             "chicken",
             "tenders",
-            "buttermilk",
-            "tenders",
             "buttermilk"
         ],
         "dishType": [
@@ -86346,8 +85841,7 @@
         "menuPrice": 35000,
         "menuTag": [
             "wings",
-            "classic",
-            "wings"
+            "classic"
         ],
         "dishType": [
             "food"
@@ -86369,8 +85863,7 @@
             "chicken",
             "rice",
             "combo",
-            "crispy",
-            "rice"
+            "crispy"
         ],
         "dishType": [
             "food"
@@ -86392,9 +85885,7 @@
             "chicken",
             "rice",
             "grilled",
-            "combo",
-            "grilled",
-            "rice"
+            "combo"
         ],
         "dishType": [
             "food"
@@ -86416,9 +85907,7 @@
             "chicken",
             "rice",
             "spicy",
-            "combo",
-            "spicy",
-            "rice"
+            "combo"
         ],
         "dishType": [
             "food"
@@ -86442,8 +85931,7 @@
             "rice",
             "cajun",
             "combo",
-            "crispy",
-            "cajun"
+            "crispy"
         ],
         "dishType": [
             "food"
@@ -86467,9 +85955,7 @@
             "rice",
             "grilled",
             "cajun",
-            "combo",
-            "grilled",
-            "cajun"
+            "combo"
         ],
         "dishType": [
             "food"
@@ -86493,9 +85979,7 @@
             "rice",
             "spicy",
             "cajun",
-            "combo",
-            "spicy",
-            "cajun"
+            "combo"
         ],
         "dishType": [
             "food"
@@ -86584,7 +86068,6 @@
         "menuTag": [
             "chicken",
             "crispy",
-            "crispy",
             "signature"
         ],
         "dishType": [
@@ -86605,8 +86088,6 @@
         "menuPrice": 80000,
         "menuTag": [
             "chicken",
-            "grilled",
-            "cajun",
             "grilled",
             "cajun"
         ],
@@ -87172,7 +86653,6 @@
             "sandwich",
             "buttermilk",
             "cheese",
-            "sandwich",
             "combo meal"
         ],
         "dishType": [
@@ -88544,8 +88024,7 @@
         "menuPrice": 94050,
         "menuTag": [
             "snack",
-            "fried banana",
-            "snack"
+            "fried banana"
         ],
         "dishType": [
             "food"
@@ -88566,8 +88045,7 @@
         "menuPrice": 85025,
         "menuTag": [
             "snack",
-            "fried banana",
-            "snack"
+            "fried banana"
         ],
         "dishType": [
             "food"
@@ -88588,8 +88066,7 @@
         "menuPrice": 75525,
         "menuTag": [
             "snack",
-            "fried banana",
-            "snack"
+            "fried banana"
         ],
         "dishType": [
             "food"
@@ -88610,8 +88087,7 @@
         "menuPrice": 66025,
         "menuTag": [
             "snack",
-            "fried banana",
-            "snack"
+            "fried banana"
         ],
         "dishType": [
             "food"
@@ -88632,8 +88108,7 @@
         "menuPrice": 56525,
         "menuTag": [
             "snack",
-            "fried banana",
-            "snack"
+            "fried banana"
         ],
         "dishType": [
             "food"
@@ -88654,8 +88129,7 @@
         "menuPrice": 46550,
         "menuTag": [
             "snack",
-            "fried banana",
-            "snack"
+            "fried banana"
         ],
         "dishType": [
             "food"
@@ -88676,8 +88150,7 @@
         "menuPrice": 37050,
         "menuTag": [
             "snack",
-            "fried banana",
-            "snack"
+            "fried banana"
         ],
         "dishType": [
             "food"
@@ -88698,8 +88171,7 @@
         "menuPrice": 27550,
         "menuTag": [
             "snack",
-            "fried banana",
-            "snack"
+            "fried banana"
         ],
         "dishType": [
             "food"
@@ -88721,8 +88193,7 @@
         "menuTag": [
             "snack",
             "fried banana",
-            "sesame",
-            "snack"
+            "sesame"
         ],
         "dishType": [
             "food"
@@ -88744,8 +88215,7 @@
         "menuTag": [
             "snack",
             "fried banana",
-            "sesame",
-            "snack"
+            "sesame"
         ],
         "dishType": [
             "food"
@@ -88767,8 +88237,7 @@
         "menuTag": [
             "snack",
             "fried banana",
-            "sesame",
-            "snack"
+            "sesame"
         ],
         "dishType": [
             "food"
@@ -88790,8 +88259,7 @@
         "menuTag": [
             "snack",
             "fried banana",
-            "sesame",
-            "snack"
+            "sesame"
         ],
         "dishType": [
             "food"
@@ -88813,8 +88281,7 @@
         "menuTag": [
             "snack",
             "fried banana",
-            "sesame",
-            "snack"
+            "sesame"
         ],
         "dishType": [
             "food"
@@ -89188,7 +88655,6 @@
         "menuDescription": "nasi putih lembut dan pulen, cocok sebagai pendamping hidangan utama. disajikan dalam porsi yang pas untuk melengkapi santapan anda di ayam forever - menteng.",
         "menuPrice": 7000,
         "menuTag": [
-            "rice",
             "rice"
         ],
         "dishType": [
@@ -89985,8 +89451,7 @@
         "menuTag": [
             "rice",
             "milkfish",
-            "anchovies",
-            "rice"
+            "anchovies"
         ],
         "dishType": [
             "food"
@@ -90028,8 +89493,7 @@
         "menuTag": [
             "rice",
             "pomfret",
-            "anchovies",
-            "rice"
+            "anchovies"
         ],
         "dishType": [
             "food"
@@ -90420,7 +89884,6 @@
         "menuPrice": 25650,
         "menuTag": [
             "rice",
-            "rice",
             "shredded chicken",
             "vegetables"
         ],
@@ -90442,7 +89905,6 @@
         "menuPrice": 25650,
         "menuTag": [
             "rice",
-            "rice",
             "shredded tuna",
             "vegetables"
         ],
@@ -90463,7 +89925,6 @@
         "menuDescription": "white rice, 1 fried cabbage, tempeh, tofu, sambal",
         "menuPrice": 28500,
         "menuTag": [
-            "rice",
             "rice",
             "fried pomfret",
             "vegetables"
@@ -91483,7 +90944,6 @@
         "menuPrice": 16000,
         "menuTag": [
             "bakwan",
-            "bakwan",
             "vegetable",
             "chili"
         ],
@@ -91505,7 +90965,6 @@
         "menuDescription": "fried bakwan vegetables (3 pcs) separate pecel seasoning",
         "menuPrice": 19000,
         "menuTag": [
-            "bakwan",
             "bakwan",
             "vegetable",
             "pecel sauce"
@@ -91645,7 +91104,6 @@
         "menuPrice": 67000,
         "menuTag": [
             "milkfish",
-            "milkfish",
             "frozen"
         ],
         "dishType": [
@@ -91690,7 +91148,6 @@
         "menuDescription": "white rice + chicken skin + egg (fish/omelette) + tofu/tempeh + sambal",
         "menuPrice": 24000,
         "menuTag": [
-            "chicken skin",
             "chicken skin",
             "egg",
             "rice",
@@ -93232,8 +92689,7 @@
         "menuPrice": 13636,
         "menuTag": [
             "coffee",
-            "creamy",
-            "coffee"
+            "creamy"
         ],
         "dishType": [
             "drink"

@@ -14,7 +14,7 @@ function cleanData(data: FinalData): ActuallyFinal {
     menuName: data.menuName.toLowerCase(),
     menuDescription: data.menuDescription.toLocaleLowerCase(),
     menuPrice: parseInt(data.menuPrice),
-    menuTag: [...tags, ...keywords],
+    menuTag: [...new Set([...tags, ...keywords]).values()],
     dishType,
     cuisine,
     flavor: data.flavor.map((e) => e.toLocaleLowerCase()),
