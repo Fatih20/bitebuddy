@@ -20,23 +20,14 @@ import {
 import { graphAnswerUnrelatedInquiry } from "./flows/UnrelatedInquiryAnswerer";
 import { graphAnswerGreetings } from "./flows/GreetingsAnswerer";
 import { MessageIntermediate } from "./utils/messageProcessing";
-import { FoodFinderAgentState, MessageType } from "./state";
-
-// Define the graph state
-const graphState: StateGraphArgs<FoodFinderAgentState>["channels"] = {
-  messages: {
-    reducer: (x: BaseMessage[], y: BaseMessage[]) => x.concat(y),
-    default: () => [],
-  },
-  summary: {
-    reducer: (x: string, y: string) => y || x,
-    default: () => "",
-  },
-  messageType: {
-    reducer: (x: MessageType[], y: MessageType[]) => y,
-    default: () => [],
-  },
-};
+import {
+  FoodFinderAgentState,
+  graphState,
+  MessageType,
+  stateDefault,
+} from "./state";
+import { graphFindSoftLimit } from "./flows/SoftLimitFinder";
+import { graphFindHardLimit } from "./flows/HardLimitFinder";
 
 export class FoodFinderAgent {
   private static instance: FoodFinderAgent;
@@ -47,6 +38,8 @@ export class FoodFinderAgent {
     | "Summarizer"
     | "AnswerGreetings"
     | "AnswerUnrelatedInquiry"
+    | "SoftLimitFinder"
+    | "HardLimitFinder"
     | "FinalProcessor"
     | "MessageTypeClassifier"
   >;
@@ -69,6 +62,8 @@ export class FoodFinderAgent {
       .addNode("AnswerUnrelatedInquiry", graphAnswerUnrelatedInquiry)
       .addNode("FinalProcessor", graphFinalProcess)
       .addNode("MessageTypeClassifier", graphMessageTypeClassifier)
+      .addNode("SoftLimitFinder", graphFindSoftLimit)
+      .addNode("HardLimitFinder", graphFindHardLimit)
       .addEdge(START, "MessageTypeClassifier")
       .addConditionalEdges("MessageTypeClassifier", graphMessageTypeRouter)
       .addEdge("Summarizer", "FinalProcessor")
@@ -107,7 +102,13 @@ export class FoodFinderAgent {
   ) {
     const addedMessage = new HumanMessage(JSON.stringify(input.messageObject));
     return traceable(this.findUnwrapped, { name: "Food Finder" })(
-      { messages: [addedMessage], summary: "", messageType: [] },
+      {
+        messages: [addedMessage],
+        summary: stateDefault.summary,
+        messageType: stateDefault.messageType,
+        hardLimitQuery: stateDefault.hardLimitQuery,
+        softLimitQuery: stateDefault.softLimitQuery,
+      },
       this.app,
       conversationId
     );
