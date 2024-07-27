@@ -16,7 +16,7 @@ export interface FinalData {
   flavor: string[];
   mealTime: string[];
   occasion: string;
-  portion: number;
+  portion: string;
 }
 
 export interface FinalDataCsv {
@@ -37,5 +37,17 @@ export interface FinalDataCsv {
   flavor: string;
   mealTime: string;
   occasion: string;
+  portion: string;
+}
+
+export interface ActuallyFinal {
+  restaurantName: string;
+  menuName: string;
+  menuDescription: string;
+  menuPrice: number;
+  menuTag: string[];
+  dishType: string[];
+  cuisine: string[];
+  flavor: string[];
   portion: number;
 }

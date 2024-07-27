@@ -1,0 +1,27 @@
+DROP COLUMN
+restaurantCuisine
+restaurantTags
+menuSection
+menuType
+mealTime
+occasion
+restaurantId
+menuId
+
+CLEANING:
+- ALL VALUES LOWERCASE
+- MERGE COLUMN menuTag, associatedKeywords
+- dishType filter non-food and n/a
+- cuisine handle comma separated
+- filter out values that have value NA or n/a or not applicable
+
+FINAL COLUMN
+restaurantName -> soft attributes
+menuName -> soft attributes
+menuDescription -> soft attributes
+menuPrice -> hard attributes
+menuTag -> soft attributes
+dishType -> hard attribtues
+cuisine -> soft attributes
+flavor -> soft attribtues
+portion -> hard attributes

@@ -1,9 +1,6 @@
 import weaviate, { DataObject } from "weaviate-client";
-import { generateUuid5 } from "weaviate-client";
-import { parse } from "csv-parse/sync";
 import fs from "fs/promises";
-import { FinalData, FinalDataCsv } from "./type.ts";
-import { convertData } from "./common.ts";
+import { ActuallyFinal } from "./type.ts";
 
 const COLLECTION_NAME = "Menu";
 
@@ -18,37 +15,13 @@ const COLLECTION_NAME = "Menu";
     name: COLLECTION_NAME,
   });
 
-  const raw = await fs.readFile("dataset.csv", { encoding: "utf-8" });
+  const raw = await fs.readFile("cleaned.json", { encoding: "utf-8" });
 
-  const parsed = parse(raw as string, {
-    delimiter: ";",
-    relaxQuotes: true,
-    columns: [
-      "restaurantId",
-      "restaurantCuisine",
-      "restaurantTags",
-      "restaurantName",
-      "menuId",
-      "menuName",
-      "menuDescription",
-      "menuSections",
-      "menuPrice",
-      "menuTag",
-      "dishType",
-      "menuType",
-      "cuisine",
-      "associatedKeywords",
-      "flavor",
-      "mealTime",
-      "occasion",
-      "portion",
-    ],
-  }) as FinalDataCsv[];
+  const parsed = JSON.parse(raw) as ActuallyFinal[];
 
   const convertedData = parsed.map((each) => {
     return {
-      properties: convertData(each),
-      id: generateUuid5(COLLECTION_NAME, each.menuId),
+      properties: each,
     };
   }) as unknown as DataObject<undefined>[];
 
