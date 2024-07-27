@@ -28,6 +28,7 @@ import {
 } from "./state";
 import { graphFindSoftLimit } from "./flows/SoftLimitFinder";
 import { graphFindHardLimit } from "./flows/HardLimitFinder";
+import { graphFindLimit } from "./flows/LimitFinder";
 
 export class FoodFinderAgent {
   private static instance: FoodFinderAgent;
@@ -38,8 +39,7 @@ export class FoodFinderAgent {
     | "Summarizer"
     | "AnswerGreetings"
     | "AnswerUnrelatedInquiry"
-    | "SoftLimitFinder"
-    | "HardLimitFinder"
+    | "LimitFinder"
     | "FinalProcessor"
     | "MessageTypeClassifier"
   >;
@@ -62,8 +62,7 @@ export class FoodFinderAgent {
       .addNode("AnswerUnrelatedInquiry", graphAnswerUnrelatedInquiry)
       .addNode("FinalProcessor", graphFinalProcess)
       .addNode("MessageTypeClassifier", graphMessageTypeClassifier)
-      .addNode("SoftLimitFinder", graphFindSoftLimit)
-      .addNode("HardLimitFinder", graphFindHardLimit)
+      .addNode("LimitFinder", graphFindLimit)
       .addEdge(START, "MessageTypeClassifier")
       .addConditionalEdges("MessageTypeClassifier", graphMessageTypeRouter)
       .addEdge("Summarizer", "FinalProcessor")
