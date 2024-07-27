@@ -1,8 +1,8 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import { ChatSchema } from "./validation_schema/chat";
-import { getZodParsingErrorFields } from "./validation_schema/zod";
+import { ChatSchema } from "./validationSchema/chat";
+import { getZodParsingErrorFields } from "./validationSchema/zod";
 import { prisma } from "./lib/prisma";
 import { parseHistory } from "../deprecate/history";
 import { QuestionRephraser } from "./lib/ai/flows/questionRephraser";
@@ -10,6 +10,7 @@ import { HardLimitFinder } from "./lib/ai/flows/hardLimitFinder";
 import envVar from "./envVar";
 import { FoodFinderAgent } from "./lib/ai/graph";
 import { convertStateToResponse } from "./lib/ai/utils/messageProcessing";
+import { FeedbackSchema } from "./validationSchema/feedback";
 
 const app = express();
 const port = envVar.port;
@@ -27,7 +28,7 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.post("/chat", async (req, res) => {
+app.post("/api/chat", async (req, res) => {
   const body = req.body;
 
   const bodyParsed = await ChatSchema.safeParseAsync(body);
@@ -40,12 +41,10 @@ app.post("/chat", async (req, res) => {
   }
 
   let conversationId: string = "";
-  let newChat = false;
-  let parsedHistory: string = "";
 
   const messageObject = bodyParsed.data;
   const { text, conversationId: conversationIdRaw } = messageObject;
-  newChat = !conversationIdRaw;
+  const newChat = !conversationIdRaw;
   console.log("Conversation Id accepted:", conversationIdRaw);
   if (!conversationIdRaw) {
     try {
@@ -63,7 +62,6 @@ app.post("/chat", async (req, res) => {
           conversationId,
         },
       });
-      parsedHistory = `User: ${text}`;
     } catch (e) {
       return res.json({ error: e }).status(500);
     }
@@ -97,6 +95,91 @@ app.post("/chat", async (req, res) => {
   });
 
   return res.status(200).json(aiMessage);
+});
+
+app.get("/api/messages/:conversationId/", async (req, res) => {
+  const conversationId = req.params.conversationId;
+  if (!conversationId) {
+    return res.status(400).json({ error: "Conversation id must exist." });
+  }
+
+  try {
+    const result = await prisma.message.findMany({
+      where: { conversationId: { equals: conversationId } },
+    });
+    return res.status(200).json({ messages: result });
+  } catch (e) {
+    return res.json({ error: e }).status(500);
+  }
+});
+
+app.get("/api/message/:conversationId/:messageId", async (req, res) => {
+  const conversationId = req.params.conversationId;
+  const messageId = req.params.messageId;
+
+  if (!messageId && !conversationId) {
+    return res
+      .status(400)
+      .json({ error: "Message id and conversation id must exist." });
+  }
+
+  try {
+    const result = await prisma.message.findFirst({
+      where: { conversationId: { equals: conversationId }, id: messageId },
+    });
+
+    if (!result) {
+      return res.status(400).json({ error: "No message found!" });
+    }
+    return res.status(200).json({ message: result });
+  } catch (e) {
+    return res.json({ error: e }).status(500);
+  }
+});
+
+app.put("/api/feedback/:conversationId/:messageId", async (req, res) => {
+  const conversationId = req.params.conversationId;
+  const messageId = req.params.messageId;
+
+  if (!messageId && !conversationId) {
+    return res
+      .status(400)
+      .json({ error: "Message id and conversation id must exist." });
+  }
+
+  const message = await prisma.message.findFirst({
+    where: { conversationId: { equals: conversationId }, id: messageId },
+  });
+
+  if (!message) {
+    return res.status(400).json({ error: "Message does not exist." });
+  }
+
+  const bodyParsed = await FeedbackSchema.safeParseAsync(req.body);
+  if (!bodyParsed.success) {
+    const errorFields = getZodParsingErrorFields(bodyParsed);
+    return res.status(400).json({
+      message: "Invalid feedback format!",
+      errorFields: errorFields,
+    });
+  }
+
+  const { comment, isPositive, reason } = bodyParsed.data;
+
+  try {
+    const result = await prisma.message.update({
+      where: { id: messageId, conversationId: conversationId },
+      data: {
+        feedbackIsPositive: isPositive,
+        feedbackComment: comment,
+        feedbackReason: reason ?? [],
+      },
+    });
+
+    return res.status(200).json({ message: result });
+  } catch (e) {
+    return res.json({ error: e }).status(500);
+  }
 });
 
 app.listen(port, "0.0.0.0", () => {
