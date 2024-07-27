@@ -5,7 +5,6 @@ import {
   END,
   START,
   StateGraph,
-  StateGraphArgs,
 } from "@langchain/langgraph";
 import { MemorySaver } from "@langchain/langgraph";
 import { wrapSDK } from "langsmith/wrappers";
@@ -20,14 +19,7 @@ import {
 import { graphAnswerUnrelatedInquiry } from "./flows/UnrelatedInquiryAnswerer";
 import { graphAnswerGreetings } from "./flows/GreetingsAnswerer";
 import { MessageIntermediate } from "./utils/messageProcessing";
-import {
-  FoodFinderAgentState,
-  graphState,
-  MessageType,
-  stateDefault,
-} from "./state";
-import { graphFindSoftLimit } from "./flows/SoftLimitFinder";
-import { graphFindHardLimit } from "./flows/HardLimitFinder";
+import { FoodFinderAgentState, graphState, stateDefault } from "./state";
 import { graphFindLimit } from "./flows/LimitFinder";
 
 export class FoodFinderAgent {
@@ -65,7 +57,8 @@ export class FoodFinderAgent {
       .addNode("LimitFinder", graphFindLimit)
       .addEdge(START, "MessageTypeClassifier")
       .addConditionalEdges("MessageTypeClassifier", graphMessageTypeRouter)
-      .addEdge("Summarizer", "FinalProcessor")
+      .addEdge("Summarizer", "LimitFinder")
+      .addEdge("LimitFinder", "FinalProcessor")
       .addEdge("FinalProcessor", END)
       .addEdge("AnswerGreetings", END)
       .addEdge("AnswerUnrelatedInquiry", END);

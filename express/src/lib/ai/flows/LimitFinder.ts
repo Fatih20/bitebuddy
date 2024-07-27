@@ -241,13 +241,13 @@ export class LimitFinder {
       })
     );
 
-    console.log("Constructing hard limit finder prompt template");
+    console.log("Constructing limit finder prompt template");
 
     const hardLimitFinderPromptTemplate = PromptTemplate.fromTemplate(
       hardLimitFinderPrompt
     );
 
-    console.log("Constructing hard limit finder chains");
+    console.log("Constructing limit finder chains");
 
     const hardLimitChain = hardLimitFinderPromptTemplate
       .pipe(llm)

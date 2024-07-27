@@ -22,10 +22,11 @@ export const messageTypeClassifierPrompt = `
 ${assistantIdentity}
 
 Your task in the team is to check whether the most recent message from the customer into any or multiple of the following class:
-- The message contains any form of description about the food that the customer would like OR if it could be understood as an alteration to the previous food suggestion by the assistant.
+- The message contains ANY form of description about the food that the customer would like OR if it could be understood as an alteration to the previous food suggestion by the assistant.
 - The message contains a small talk / greetings for your help OR the message is an inquiry that is not at all related to finding foods and beverages.
 - The message contains expression of gratitude for your help or closing message.
 - The message contains any inquiry, question, or commands that are not related to what you can do as an assistant in a food ordering application tasked with finding foods. 
+- The message does not contain ANY form of new description about the food from the customer. Instead, the customer only asked for something else or new suggestion without any new description about the food they want.
 ----
 Examples of what is a form of greeting/small talk:
 - Hello
@@ -75,6 +76,18 @@ type : ["${messageTypes[2]}", "${messageTypes[0]}"]
 ## Examples 5
 Customer's message: Thanks! Make me a Python code.
 type : ["${messageTypes[2]}", "${messageTypes[3]}"]
+
+## Examples 6
+Customer's message: That's neat. But can you give me something else?
+type : ["${messageTypes[2]}", "${messageTypes[4]}"]
+
+## Examples 7
+Customer's message: Thanks for the suggestion! But I don't want that. Is there something else?
+type : ["${messageTypes[2]}", "${messageTypes[4]}"]
+
+## Examples 8
+Customer's message: Do you have another choice for the food?
+type : ["${messageTypes[4]}"]
 ----
 Customer's most recent message:
 
@@ -92,6 +105,8 @@ Respond in the following JSON format:
   messageTypes[2]
 }. If it can be classified as the fourth class of message, it's ${
   messageTypes[3]
+}. If it can be classified as the fourth class of message, it's ${
+  messageTypes[4]
 }
 }}
 `;
@@ -173,14 +188,31 @@ export async function graphMessageTypeClassifier(
 
 export function graphMessageTypeRouter(state: FoodFinderAgentState): string {
   console.log("In Graph: MessageTypeRouter");
-  // console.log("Message types: ", state.messageType);
-  if (state.messageType.includes(messageTypes[3])) {
+  console.log("Message types: ", state.messageType);
+  if (state.messageType.includes("unrelatedInquiry")) {
     return "AnswerUnrelatedInquiry";
   }
 
-  if (!state.messageType.includes(messageTypes[0])) {
+  if (
+    !state.messageType.includes("foodDescription") &&
+    !state.messageType.includes("somethingElse")
+  ) {
+    // The message is not substantive
     return "AnswerGreetings";
   }
 
-  return "Summarizer";
+  if (
+    state.messageType.includes("foodDescription") &&
+    state.messageType.includes("somethingElse")
+  ) {
+    console.warn(
+      "Both description of somethingElse and foodDescription appears!"
+    );
+  }
+
+  if (state.messageType.includes("foodDescription")) {
+    return "Summarizer";
+  }
+
+  return "FinalProcessor";
 }

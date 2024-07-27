@@ -6,6 +6,7 @@ export const messageTypes = [
   "smallTalk",
   "closing",
   "unrelatedInquiry",
+  "somethingElse",
 ] as const;
 
 export type MessageType = (typeof messageTypes)[number];
