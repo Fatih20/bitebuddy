@@ -135,7 +135,7 @@ export class FinalSelector {
   }
 }
 
-export async function graphFinalProcess(
+export async function graphFinalSelector(
   state: FoodFinderAgentState
 ): Promise<FoodFinderAgentStatePartial> {
   console.log("In graph: FinalSelector");

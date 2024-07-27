@@ -230,7 +230,7 @@ export function getSelectionError(state: FoodFinderAgentStatePartial): boolean {
   return false;
 }
 
-export async function graphFinalProcess(
+export async function graphFinalProcessor(
   state: FoodFinderAgentState
 ): Promise<FoodFinderAgentStatePartial> {
   const isSelectionError = getSelectionError(state);

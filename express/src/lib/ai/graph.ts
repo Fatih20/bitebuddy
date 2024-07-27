@@ -11,7 +11,7 @@ import { wrapSDK } from "langsmith/wrappers";
 import envVar from "../../envVar";
 import { traceable } from "langsmith/traceable";
 import { graphSummarize } from "./flows/Summarizer";
-import { graphFinalProcess } from "./flows/FinalProcessor";
+import { graphFinalProcessor } from "./flows/FinalProcessor";
 import {
   graphMessageTypeClassifier,
   graphMessageTypeRouter,
@@ -21,6 +21,8 @@ import { graphAnswerGreetings } from "./flows/GreetingsAnswerer";
 import { MessageIntermediate } from "./utils/messageProcessing";
 import { FoodFinderAgentState, graphState, stateDefault } from "./state";
 import { graphFindLimit } from "./flows/LimitFinder";
+import { graphFinder } from "./flows/Finder";
+import { graphFinalSelector } from "./flows/FinalSelector";
 
 export class FoodFinderAgent {
   private static instance: FoodFinderAgent;
@@ -32,6 +34,8 @@ export class FoodFinderAgent {
     | "AnswerGreetings"
     | "AnswerUnrelatedInquiry"
     | "LimitFinder"
+    | "Finder"
+    | "FinalSelector"
     | "FinalProcessor"
     | "MessageTypeClassifier"
   >;
@@ -52,13 +56,18 @@ export class FoodFinderAgent {
       .addNode("Summarizer", graphSummarize)
       .addNode("AnswerGreetings", graphAnswerGreetings)
       .addNode("AnswerUnrelatedInquiry", graphAnswerUnrelatedInquiry)
-      .addNode("FinalProcessor", graphFinalProcess)
+      .addNode("FinalProcessor", graphFinalProcessor)
       .addNode("MessageTypeClassifier", graphMessageTypeClassifier)
       .addNode("LimitFinder", graphFindLimit)
+      .addNode("Finder", graphFinder)
+      .addNode("FinalSelector", graphFinalSelector)
+      .addNode("FinalProcessor", graphFinalProcessor)
       .addEdge(START, "MessageTypeClassifier")
       .addConditionalEdges("MessageTypeClassifier", graphMessageTypeRouter)
       .addEdge("Summarizer", "LimitFinder")
-      .addEdge("LimitFinder", "FinalProcessor")
+      .addEdge("LimitFinder", "Finder")
+      .addEdge("Finder", "FinalSelector")
+      .addEdge("FinalSelector", "FinalProcessor")
       .addEdge("FinalProcessor", END)
       .addEdge("AnswerGreetings", END)
       .addEdge("AnswerUnrelatedInquiry", END);
@@ -100,6 +109,8 @@ export class FoodFinderAgent {
         messageType: stateDefault.messageType,
         hardLimitQuery: stateDefault.hardLimitQuery,
         softLimitQuery: stateDefault.softLimitQuery,
+        finalSelection: stateDefault.finalSelection,
+        queryOutput: stateDefault.queryOutput,
       },
       this.app,
       conversationId
