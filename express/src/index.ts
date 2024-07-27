@@ -1,14 +1,16 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import { ChatSchema } from "./validation_schema/chat";
-import { getZodParsingErrorFields } from "./validation_schema/zod";
+import { ChatSchema } from "./validationSchema/chat";
+import { getZodParsingErrorFields } from "./validationSchema/zod";
 import { prisma } from "./lib/prisma";
-import { parseHistory } from "./lib/history";
-import { Summarizer } from "./lib/ai/flows/summarizer";
+import { parseHistory } from "../deprecate/history";
 import { QuestionRephraser } from "./lib/ai/flows/questionRephraser";
 import { HardLimitFinder } from "./lib/ai/flows/hardLimitFinder";
 import envVar from "./envVar";
+import { FoodFinderAgent } from "./lib/ai/graph";
+import { convertStateToResponse } from "./lib/ai/utils/messageProcessing";
+import { FeedbackSchema } from "./validationSchema/feedback";
 
 const app = express();
 const port = envVar.port;
@@ -26,7 +28,7 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.post("/chat", async (req, res) => {
+app.post("/api/chat", async (req, res) => {
   const body = req.body;
 
   const bodyParsed = await ChatSchema.safeParseAsync(body);
@@ -39,29 +41,27 @@ app.post("/chat", async (req, res) => {
   }
 
   let conversationId: string = "";
-  let newChat = false;
-  let parsedHistory: string = "";
 
-  const { message, conversationId: conversationIdRaw } = bodyParsed.data;
-  newChat = !conversationIdRaw;
-  console.log(conversationIdRaw);
+  const messageObject = bodyParsed.data;
+  const { text, conversationId: conversationIdRaw } = messageObject;
+  const newChat = !conversationIdRaw;
+  console.log("Conversation Id accepted:", conversationIdRaw);
   if (!conversationIdRaw) {
     try {
       const { id } = await prisma.conversation.create({
-        data: { summary: message },
+        data: { summary: text },
       });
       conversationId = id;
       await prisma.message.create({
         data: {
           content: {
             type: "text",
-            text: message,
+            text,
           },
           role: "user",
           conversationId,
         },
       });
-      parsedHistory = `User: ${message}`;
     } catch (e) {
       return res.json({ error: e }).status(500);
     }
@@ -71,49 +71,126 @@ app.post("/chat", async (req, res) => {
       data: {
         content: {
           type: "text",
-          text: message,
+          text: text,
         },
         role: "user",
         conversationId,
       },
     });
-    const history = await prisma.message.findMany({
-      orderBy: { createdAt: "asc" },
-      select: { role: true, content: true },
-      where: { conversationId: { equals: conversationId } },
-    });
-    parsedHistory = parseHistory(history).join("\n");
   }
 
-  const summarizer = await Summarizer.getInstance();
-  const rephraser = await QuestionRephraser.getInstance();
-  const hardLimitFinder = await HardLimitFinder.getInstance();
+  const foodFinderAgent = FoodFinderAgent.getInstance();
 
-  const summary = await summarizer.summarize({ chat_history: parsedHistory });
-  console.log("Summary: ", summary);
-  const rephrasedQuestion = await rephraser.rephraseQuestion({
-    user_preference: summary,
-  });
-  console.log("Rephrased question: ", rephrasedQuestion);
-  const hardLimits = await hardLimitFinder.findHardLimit({
-    food_description: rephrasedQuestion,
-  });
-  console.log("Hard limits: ", hardLimits);
-
-  const aiMessage = await prisma.message.create({
-    data: {
-      content: {
-        type: "text",
-        text: "Saya catat dulu.",
-      },
-      role: "ai",
-      conversationId,
+  const result = await foodFinderAgent.find(
+    {
+      messageObject: [{ text, type: "text", role: "human" }],
     },
+    conversationId
+  );
+
+  const insertedMessage = convertStateToResponse(result, conversationId);
+
+  const aiMessage = await prisma.message.createManyAndReturn({
+    data: insertedMessage,
   });
 
   return res.status(200).json(aiMessage);
 });
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+app.get("/api/messages/:conversationId", async (req, res) => {
+  const conversationId = req.params.conversationId;
+  if (!conversationId) {
+    return res.status(400).json({ error: "Conversation id must exist." });
+  }
+
+  try {
+    const result = await prisma.message.findMany({
+      where: { conversationId: { equals: conversationId } },
+      orderBy: {
+        createdAt: "asc",
+      },
+    });
+    return res.status(200).json({ messages: result });
+  } catch (e) {
+    return res.json({ error: e }).status(500);
+  }
+});
+
+app.get("/api/message/:conversationId/:messageId", async (req, res) => {
+  const conversationId = req.params.conversationId;
+  const messageId = req.params.messageId;
+
+  if (!messageId && !conversationId) {
+    return res
+      .status(400)
+      .json({ error: "Message id and conversation id must exist." });
+  }
+
+  try {
+    const result = await prisma.message.findFirst({
+      where: { conversationId: { equals: conversationId }, id: messageId },
+    });
+
+    if (!result) {
+      return res.status(400).json({ error: "No message found!" });
+    }
+    return res.status(200).json({ message: result });
+  } catch (e) {
+    return res.json({ error: e }).status(500);
+  }
+});
+
+app.put("/api/feedback/:conversationId/:messageId", async (req, res) => {
+  const conversationId = req.params.conversationId;
+  const messageId = req.params.messageId;
+
+  if (!messageId && !conversationId) {
+    return res
+      .status(400)
+      .json({ error: "Message id and conversation id must exist." });
+  }
+
+  const message = await prisma.message.findFirst({
+    where: { conversationId: { equals: conversationId }, id: messageId },
+  });
+
+  if (!message) {
+    return res.status(400).json({ error: "Message does not exist." });
+  }
+
+  const bodyParsed = await FeedbackSchema.safeParseAsync(req.body);
+  if (!bodyParsed.success) {
+    const errorFields = getZodParsingErrorFields(bodyParsed);
+    return res.status(400).json({
+      message: "Invalid feedback format!",
+      errorFields: errorFields,
+    });
+  }
+
+  const { comment, isPositive, reason } = bodyParsed.data;
+
+  const feedbackParsed = {
+    comment: isPositive ? null : comment,
+    reason: isPositive ? [] : reason ?? [],
+    isPositive,
+  };
+
+  try {
+    const result = await prisma.message.update({
+      where: { id: messageId, conversationId: conversationId },
+      data: {
+        feedbackIsPositive: feedbackParsed.isPositive,
+        feedbackComment: feedbackParsed.comment,
+        feedbackReason: feedbackParsed.reason,
+      },
+    });
+
+    return res.status(200).json({ message: result });
+  } catch (e) {
+    return res.json({ error: e }).status(500);
+  }
+});
+
+app.listen(port, "0.0.0.0", () => {
+  console.log(`Server is running at http://0.0.0.0:${port}`);
 });

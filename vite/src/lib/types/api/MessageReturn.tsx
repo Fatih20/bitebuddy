@@ -7,7 +7,7 @@ export type FoodMessage = {
   menuSections: string;
 };
 
-type MessageReturn = (
+export type MessageReturn = (
   | {
       type: "foods";
       foods: FoodMessage[];
