@@ -96,10 +96,11 @@ app.post("/api/chat", async (req, res) => {
   });
 
   return res.status(200).json({
-    messages: aiMessage.map(({ content, role, conversationId }) => {
+    messages: aiMessage.map(({ content, role, conversationId, id }) => {
       return {
         ...(content as object),
         role,
+        id,
       };
     }),
     conversationId,
