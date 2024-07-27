@@ -97,7 +97,7 @@ app.post("/api/chat", async (req, res) => {
   return res.status(200).json(aiMessage);
 });
 
-app.get("/api/messages/:conversationId/", async (req, res) => {
+app.get("/api/messages/:conversationId", async (req, res) => {
   const conversationId = req.params.conversationId;
   if (!conversationId) {
     return res.status(400).json({ error: "Conversation id must exist." });
@@ -106,6 +106,9 @@ app.get("/api/messages/:conversationId/", async (req, res) => {
   try {
     const result = await prisma.message.findMany({
       where: { conversationId: { equals: conversationId } },
+      orderBy: {
+        createdAt: "asc",
+      },
     });
     return res.status(200).json({ messages: result });
   } catch (e) {
@@ -166,13 +169,19 @@ app.put("/api/feedback/:conversationId/:messageId", async (req, res) => {
 
   const { comment, isPositive, reason } = bodyParsed.data;
 
+  const feedbackParsed = {
+    comment: isPositive ? null : comment,
+    reason: isPositive ? [] : reason ?? [],
+    isPositive,
+  };
+
   try {
     const result = await prisma.message.update({
       where: { id: messageId, conversationId: conversationId },
       data: {
-        feedbackIsPositive: isPositive,
-        feedbackComment: comment,
-        feedbackReason: reason ?? [],
+        feedbackIsPositive: feedbackParsed.isPositive,
+        feedbackComment: feedbackParsed.comment,
+        feedbackReason: feedbackParsed.reason,
       },
     });
 
