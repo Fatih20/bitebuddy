@@ -12,16 +12,13 @@ import util from "util";
 
 import { QueryInput } from "./type.ts";
 import {
-  bebas,
+  ayamGoreng,
+  chickenWings,
   espresso,
   friedChicken,
-  japaneseShushi,
-  makananSpesifik,
-  martabakAsin,
-  martabakFaulty,
-  martabakManis,
-  rotiBakar,
-  yangPentingBrazil,
+  japaneseFood,
+  onionRing,
+  spaghetti,
 } from "./querySample.ts";
 
 util.inspect.defaultOptions.depth = null;
@@ -218,6 +215,168 @@ class QueryProcessor {
   public async queryVector(input: QueryInput) {
     const collection = this.collection;
     const queries: string[] = [];
+    const options: BaseNearTextOptions<undefined> = {
+      limit: 10,
+      returnReferences: [
+        {
+          linkOn: "hasRestaurant",
+          returnProperties: ["name"],
+        },
+      ],
+      returnMetadata: ["distance"],
+      distance: 0.4,
+    };
+
+    const filters: FilterValue[] = [];
+    const moveAwayConcepts: string[] = [];
+    const moveToConcepts: string[] = [];
+
+    // handle query for price
+    if (input.price) {
+      if (input.price.min) {
+        filters.push(
+          collection.filter
+            .byProperty("menuPrice")
+            .greaterOrEqual(input.price.min)
+        );
+      }
+
+      if (input.price.max) {
+        filters.push(
+          collection.filter.byProperty("menuPrice").lessOrEqual(input.price.max)
+        );
+      }
+    }
+
+    // handle dishType
+    if (input.dishType && input.dishType.length !== 0) {
+      if (input.dishType.length === 2) {
+        filters.push(
+          collection.filter
+            .byProperty("dishType")
+            .containsAll(["food", "drink"])
+        );
+      } else if (input.dishType.length === 1) {
+        filters.push(
+          collection.filter.byProperty("dishType").containsAll(input.dishType)
+        );
+      }
+    }
+
+    // handle queries
+    if (input.query.restaurant) {
+      const includeRestaurants = await this.queryRestaurant(
+        input.query.restaurant.toLocaleLowerCase()
+      );
+
+      if (includeRestaurants.length !== 0) {
+        filters.push(
+          this.collection.filter
+            .byRef("hasRestaurant")
+            .byId()
+            .containsAny(includeRestaurants)
+        );
+      } else {
+        filters.push(
+          this.collection.filter
+            .byRef("hasRestaurant")
+            .byProperty("name")
+            .equal("laskjdlkasjdsa") // intentional empty result query
+        );
+      }
+    }
+
+    if (input.query.menu) {
+      queries.push(`name ${input.query.menu.toLowerCase()}`);
+    }
+
+    if (input.query.flavor) {
+      // queries.push(`flavor ${input.query.flavor.toLowerCase()}`);
+      moveToConcepts.push(`flavor ${input.query.flavor.toLowerCase()}`);
+    }
+
+    if (input.query.cuisine) {
+      // moveToConcepts.push(`cuisine ${input.query.cuisine.toLowerCase()}`);
+      queries.push(`cuisine ${input.query.cuisine.toLowerCase()}`);
+    }
+
+    // handle exclusion
+    if (input.exclusionQuery) {
+      if (input.exclusionQuery.restaurant) {
+        const excludeRestaurants = await this.queryRestaurant(
+          input.exclusionQuery.restaurant.toLocaleLowerCase()
+        );
+
+        excludeRestaurants.forEach((e) => {
+          filters.push(
+            this.restaurantCollection.filter
+              .byRef("hasRestaurant")
+              .byId()
+              .notEqual(e)
+          );
+        });
+      }
+
+      if (input.exclusionQuery.menu) {
+        moveAwayConcepts.push(`${input.exclusionQuery.menu.toLowerCase()}`);
+      }
+
+      if (input.exclusionQuery.flavor) {
+        // queries.push(`flavor not ${input.exclusionQuery.flavor.toLowerCase()}`);
+        moveAwayConcepts.push(`${input.exclusionQuery.flavor.toLowerCase()}`);
+      }
+
+      if (input.exclusionQuery.cuisine) {
+        // queries.push(
+        //   `cuisine not ${input.exclusionQuery.cuisine.toLowerCase()}`
+        // );
+        moveAwayConcepts.push(`${input.exclusionQuery.cuisine.toLowerCase()}`);
+      }
+    }
+
+    // build query
+    if (queries.length === 0) {
+      queries.push("food");
+    }
+
+    if (filters.length > 0) {
+      if (filters.length === 1) {
+        options.filters = filters[0];
+      } else {
+        options.filters = Filters.and(...filters);
+      }
+    }
+
+    // handle portion
+    if (input.portion) {
+      moveToConcepts.push(`portion almost ${input.portion}`);
+    }
+
+    if (moveAwayConcepts.length > 0) {
+      options.moveAway = {
+        force: 1,
+        concepts: moveAwayConcepts,
+      };
+    }
+
+    if (moveToConcepts.length > 0) {
+      options.moveTo = {
+        force: 0.5,
+        concepts: moveToConcepts,
+      };
+    }
+
+    console.log(`queries`);
+    console.log(queries);
+    console.log("options");
+    console.log(options);
+
+    return await this.collection.query.nearText(queries.join(" and "), options);
+  }
+
+  public async queryHybrid(input: QueryInput) {
+    const collection = this.collection;
+    const queries: string[] = [];
     const options: BaseHybridOptions<undefined> = {
       limit: 5,
       returnReferences: [
@@ -400,7 +559,7 @@ class QueryProcessor {
   }
 
   public async query(input: QueryInput) {
-    return this.queryExact(input);
+    return this.queryVector(input);
   }
 }
 
@@ -410,33 +569,29 @@ class QueryProcessor {
 
   const names = [
     "espresso",
-    "friedChicken",
-    "martabakAsin",
-    // "martabakManis",
-    // "martabakFaulty",
-    // "rotiBakar",
-    // "bebas",
-    // "makananSpesifik",
-    // "yangPentingBrazil",
+    "spaghetti",
+    // "friedChicken",
+    // "japaneseFood",
+    // "ayamGoreng",
+    // "onionRing",
+    // "chickenWings",
   ];
 
   const vars: QueryInput[] = [
     espresso,
-    friedChicken,
-    martabakAsin,
-    // martabakManis,
-    // martabakFaulty,
-    // rotiBakar,
-    // bebas,
-    // makananSpesifik,
-    // yangPentingBrazil,
+    spaghetti,
+    // friedChicken,
+    // japaneseFood,
+    // ayamGoreng,
+    // onionRing,
+    // chickenWings,
   ];
 
   for (let i = 0; i < vars.length; i++) {
     const name = names[i];
     console.time(name);
     console.log(vars[i]);
-    const result = await processor.queryExact(vars[i]);
+    const result = await processor.query(vars[i]);
     console.log(name);
     console.log(result);
     console.timeEnd(name);
