@@ -99,6 +99,6 @@ app.post("/chat", async (req, res) => {
   return res.status(200).json(aiMessage);
 });
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+app.listen(port, "0.0.0.0", () => {
+  console.log(`Server is running at http://0.0.0.0:${port}`);
 });
