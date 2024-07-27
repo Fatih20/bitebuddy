@@ -100,9 +100,9 @@ app.post("/api/chat", async (req, res) => {
       return {
         ...(content as object),
         role,
-        conversationId,
       };
     }),
+    conversationId,
   });
 });
 
