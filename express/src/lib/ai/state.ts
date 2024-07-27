@@ -1,5 +1,6 @@
 import { BaseMessage } from "@langchain/core/messages";
 import { StateGraphArgs } from "@langchain/langgraph";
+import { QueryOutput } from "../search/types";
 
 export const messageTypes = [
   "foodDescription",
@@ -27,6 +28,16 @@ export type SoftLimitState = {
   flavor: string | null;
 };
 
+export type FinalOutputMessage =
+  | "Index out of bound"
+  | "No food/beverages found!"
+  | undefined;
+
+export type FinalOutputState = {
+  index: number | undefined;
+  message: FinalOutputMessage;
+};
+
 // Define the state interface
 export interface FoodFinderAgentState {
   messages: BaseMessage[];
@@ -34,9 +45,15 @@ export interface FoodFinderAgentState {
   messageType: MessageType[];
   hardLimitQuery: HardLimitState;
   softLimitQuery: SoftLimitState;
+  queryOutput: QueryOutput;
+  finalSelection: FinalOutputState;
 }
 
 export const stateDefault: FoodFinderAgentState = {
+  queryOutput: {
+    message: "",
+    data: [],
+  },
   hardLimitQuery: {
     dishType: [],
     portionSize: null,
@@ -54,6 +71,10 @@ export const stateDefault: FoodFinderAgentState = {
   messageType: [],
   messages: [],
   summary: "",
+  finalSelection: {
+    index: undefined,
+    message: undefined,
+  },
 };
 
 export type FoodFinderAgentStatePartial = Partial<FoodFinderAgentState>;
@@ -79,5 +100,13 @@ export const graphState: StateGraphArgs<FoodFinderAgentState>["channels"] = {
   softLimitQuery: {
     reducer: (x: SoftLimitState, y: SoftLimitState) => y,
     default: () => stateDefault.softLimitQuery,
+  },
+  queryOutput: {
+    reducer: (x: QueryOutput, y: QueryOutput) => y,
+    default: () => stateDefault.queryOutput,
+  },
+  finalSelection: {
+    reducer: (x: FinalOutputState, y: FinalOutputState) => y,
+    default: () => stateDefault.finalSelection,
   },
 };

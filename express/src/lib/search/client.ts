@@ -102,7 +102,7 @@ export class QueryProcessor {
             .containsAny(includeRestaurants)
         );
       } else {
-        explainMessage = `no restaurant ${input.query.restaurant} found`;
+        explainMessage = `No restaurant ${input.query.restaurant} found`;
         filters.push(
           this.collection.filter
             .byRef("hasRestaurant")

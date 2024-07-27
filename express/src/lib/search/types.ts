@@ -3,22 +3,22 @@ import { z } from "zod";
 export const QueryInputSchema = z.object({
   query: z
     .object({
-      restaurant: z.string().optional().describe("Query for restaurant"),
+      restaurant: z.string().nullable().describe("Query for restaurant"),
       menu: z
         .string()
-        .optional()
+        .nullable()
         .describe(
           "Query for menu. This will search based on menuName, menuDescription, and menuTag"
         ),
       cuisine: z
         .string()
-        .optional()
+        .nullable()
         .describe(
           "Query for cuisine. This will search menu based on preferred cuisines"
         ),
       flavor: z
         .string()
-        .optional()
+        .nullable()
         .describe(
           "Query for flavor. This will search menu based on preferred base flavor"
         ),
@@ -28,44 +28,44 @@ export const QueryInputSchema = z.object({
     .object({
       restaurant: z
         .string()
-        .optional()
+        .nullable()
         .describe("Exclusion query for restaurant"),
       menu: z
         .string()
-        .optional()
+        .nullable()
         .describe(
           "Exclusion query for menu. This will search based on menuName, menuDescription, and menuTag"
         ),
       cuisine: z
         .string()
-        .optional()
+        .nullable()
         .describe(
           "Exclusion query for cuisine. This will search menu based on preferred cuisines"
         ),
       flavor: z
         .string()
-        .optional()
+        .nullable()
         .describe(
           "Exclusion query for flavor. This will search menu based on preferred base flavor"
         ),
     })
-    .optional()
+    .nullable()
     .describe(
       "Exclusion query for restaurant, menu, cuisine, and flavor properties"
     ),
   price: z
     .object({
-      min: z.number().optional().describe("Minimum price limit"),
-      max: z.number().optional().describe("Maximum price limit"),
+      min: z.number().nullable().describe("Minimum price limit"),
+      max: z.number().nullable().describe("Maximum price limit"),
     })
-    .optional()
+    .nullable()
     .describe("Query price parameters"),
   dishType: z
     .enum(["food", "drink"])
     .array()
-    .optional()
+    .nullable()
     .describe("Dish type, could be `food`, `drink`, or both"),
-  portion: z.number().min(1).optional().describe("Preferred portion size"),
+  portion: z.number().min(1).nullable().describe("Preferred portion size"),
 });
 
 export type QueryInput = z.infer<typeof QueryInputSchema>;

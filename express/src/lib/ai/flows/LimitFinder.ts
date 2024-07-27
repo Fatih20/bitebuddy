@@ -17,11 +17,6 @@ import {
   SoftLimitState,
 } from "../state";
 import { assistantIdentity } from "../prompts/commons";
-import {
-  convertTextToMessage,
-  getMessageIntermediates,
-  getUserLastMessageString,
-} from "../utils/messageProcessing";
 import { ChatOpenAI, OpenAI } from "@langchain/openai";
 
 export const uniqueValues = {
