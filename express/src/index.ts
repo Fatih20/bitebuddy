@@ -95,7 +95,15 @@ app.post("/api/chat", async (req, res) => {
     data: insertedMessage,
   });
 
-  return res.status(200).json(aiMessage);
+  return res.status(200).json({
+    messages: aiMessage.map(({ content, role, conversationId }) => {
+      return {
+        ...(content as object),
+        role,
+        conversationId,
+      };
+    }),
+  });
 });
 
 app.get("/api/messages/:conversationId", async (req, res) => {
