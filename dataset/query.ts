@@ -220,7 +220,7 @@ class QueryProcessor {
       explainMessage = "no menu meets the query criteria";
     }
 
-    // console.log(result);
+    console.log(result);
 
     const resultData = result.objects.map((o) => {
       o.properties;
@@ -247,8 +247,8 @@ class QueryProcessor {
   const names = [
     // "espresso",
     // "spaghetti",
-    "friedChicken",
-    // "japaneseFood",
+    // "friedChicken",
+    "japaneseFood",
     // "ayamGoreng",
     // "onionRing",
     // "chickenWings",
@@ -259,8 +259,8 @@ class QueryProcessor {
   const vars: QueryInput[] = [
     // espresso,
     // spaghetti,
-    friedChicken,
-    // japaneseFood,
+    // friedChicken,
+    japaneseFood,
     // ayamGoreng,
     // onionRing,
     // chickenWings,

@@ -25,7 +25,7 @@ import { ChatOpenAI, OpenAI } from "@langchain/openai";
 export const answerGreetingsPrompt = `
 ${assistantIdentity}
 
-Your task in the team is to answer the latests message of greetings/gratitude/small talk/closing that has been made by the customer appropriately.
+Your task in the team is to answer the latests message of greetings/gratitude/small talk/closing that has been made by the user appropriately.
 ----
 ## Examples of input and response ##
 ### Examples 1 ###
@@ -40,7 +40,7 @@ Your answer: You are welcome, I am glad to have helped you. Enjoy your dinner!
 Greetings: Okay that should be it.
 Your answer: I am glad that I have been of an assistance. Enjoy your food!
 ----
-The customer's last message:
+The user's last message:
 {lastMessage}
 ----
 Respond solely with your answer and don't use quotation marks to enclose it:

@@ -1,4 +1,4 @@
-import envVar from "../../../envVar";
+import envVar from "../src/envVar";
 import { ChatAnthropic } from "@langchain/anthropic";
 import {
   JsonOutputParser,

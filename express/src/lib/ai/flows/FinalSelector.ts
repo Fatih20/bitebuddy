@@ -29,14 +29,14 @@ The format of your input #1 and input #2 will be given below.
 ## Format of input #1
 The input #1 (user preference for the food/beverage) is given in this JSON format:
 {{
-  price: {
+  price: {{
     min: number | null // the minimum price of food/beverage that the user wants. null if not specified.
     max: number | null // the maximum price of food/beverage that the user wants. null if not specified.
-  },
+  }},
   dishType: ("food" | "drink")[] // an array containing the string "food" or "drink". marks the type of dish that the user wants. it could contain both food and drink.
   portionSize: number | null // ignore this property
   "restaurant" : string | null, // The name and description of the restaurant preferred by the user. null if it is not specified.
-  "menu" : string // The name of the food/beverage preferred by the customer, the description of the food/beverage preferred by the customer, any trait or characteristic of the food/beverage. null if it is not specified.
+  "menu" : string // The name of the food/beverage preferred by the user, the description of the food/beverage preferred by the user, any trait or characteristic of the food/beverage. null if it is not specified.
   "cuisine" : string[] // The origins of the food. Is empty if it can't be inferred.
   "flavor" : string[], // The flavors of the food. Is empty if it can't be inferred.
 }}
@@ -57,10 +57,12 @@ The following is the food/beverage preference from the user (input #1) in the af
 The following is the food/beverage that has been pre-selected by another part of the team (input #2) in the aforementioned format:
 {queriedFood}
 ----
-You are tasked to make your selection by giving the index of the element of the array of foods/beverages in input #2 that you're choosing. Make sure that the index is within bound! Output in the following format:
+You are tasked to make your selection by giving the index of the element of the array of foods/beverages in input #2 that you're choosing. Make sure that the index is within bound! Output STRICTLY in the following format with no other messages:
 {{
   index: number // the index of the foods/beverages in the array element from input #2 that you're choosing
 }}
+----
+Respond ONLY with the JSON format message with no other messages:
 `;
 
 export type FinalSelectorInput = {
@@ -169,6 +171,8 @@ export async function graphFinalSelector(
   });
 
   let indexProcessed = indexRaw;
+  console.log("Query output length: ", state.queryOutput.data.length);
+  console.log("Found index: ", indexRaw);
   const indexOutOfBound = indexRaw > state.queryOutput.data.length - 1;
 
   if (indexOutOfBound) {
@@ -177,8 +181,8 @@ export async function graphFinalSelector(
   }
 
   const message: FinalOutputMessage = indexOutOfBound
-    ? undefined
-    : "Index out of bound";
+    ? "Index out of bound"
+    : undefined;
 
   return {
     finalSelection: {

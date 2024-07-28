@@ -23,6 +23,7 @@ import { FoodFinderAgentState, graphState, stateDefault } from "./state";
 import { graphFindLimit } from "./flows/LimitFinder";
 import { graphFinder } from "./flows/Finder";
 import { graphFinalSelector } from "./flows/FinalSelector";
+import { graphSuggest as graphSuggester } from "./flows/Suggester";
 
 export class FoodFinderAgent {
   private static instance: FoodFinderAgent;
@@ -36,6 +37,7 @@ export class FoodFinderAgent {
     | "LimitFinder"
     | "Finder"
     | "FinalSelector"
+    | "Suggester"
     | "FinalProcessor"
     | "MessageTypeClassifier"
   >;
@@ -56,12 +58,12 @@ export class FoodFinderAgent {
       .addNode("Summarizer", graphSummarize)
       .addNode("AnswerGreetings", graphAnswerGreetings)
       .addNode("AnswerUnrelatedInquiry", graphAnswerUnrelatedInquiry)
-      .addNode("FinalProcessor", graphFinalProcessor)
       .addNode("MessageTypeClassifier", graphMessageTypeClassifier)
       .addNode("LimitFinder", graphFindLimit)
       .addNode("Finder", graphFinder)
       .addNode("FinalSelector", graphFinalSelector)
       .addNode("FinalProcessor", graphFinalProcessor)
+      .addNode("Suggester", graphSuggester)
       .addEdge(START, "MessageTypeClassifier")
       .addConditionalEdges("MessageTypeClassifier", graphMessageTypeRouter)
       .addEdge("Summarizer", "LimitFinder")
@@ -70,7 +72,8 @@ export class FoodFinderAgent {
       .addEdge("FinalSelector", "FinalProcessor")
       .addEdge("FinalProcessor", END)
       .addEdge("AnswerGreetings", END)
-      .addEdge("AnswerUnrelatedInquiry", END);
+      .addEdge("AnswerUnrelatedInquiry", END)
+      .addEdge("Suggester", END);
 
     const checkpointer = new MemorySaver();
 
@@ -92,6 +95,8 @@ export class FoodFinderAgent {
     app: typeof this.app,
     conversationId: string
   ) {
+    console.log("In findUnwrapped.");
+    console.log("Running with conversationId: ", conversationId);
     return (await app.invoke(input, {
       configurable: { threadId: conversationId },
     })) as FoodFinderAgentState;
@@ -111,6 +116,7 @@ export class FoodFinderAgent {
         softLimitQuery: stateDefault.softLimitQuery,
         finalSelection: stateDefault.finalSelection,
         queryOutput: stateDefault.queryOutput,
+        exclusion: stateDefault.exclusion,
       },
       this.app,
       conversationId

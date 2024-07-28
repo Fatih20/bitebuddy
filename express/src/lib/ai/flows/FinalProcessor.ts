@@ -213,18 +213,22 @@ export class FinalProcessor {
 
 export function getSelectionError(state: FoodFinderAgentStatePartial): boolean {
   if (!!state.queryOutput?.message) {
+    console.warn("Selection error: query output message not empty");
     return true;
   }
 
   if (state.finalSelection?.message === "No food/beverages found!") {
+    console.warn("Selection error: no food/beverages found");
     return true;
   }
 
   if (state.finalSelection?.message === "Index out of bound") {
+    console.warn("Selection error: index out of bound");
     return true;
   }
 
   if (state.finalSelection?.index === -1) {
+    console.warn("Selection error: -1 index");
     return true;
   }
   return false;
@@ -240,18 +244,32 @@ export async function graphFinalProcessor(
   const lastMessage = getUserLastMessageString(
     messageIntermediates[messageIntermediates.length - 1]
   );
-  if (!isSelectionError && !!state.finalSelection.index) {
+  if (!isSelectionError && state.finalSelection.index !== undefined) {
     const selectedFood = state.queryOutput.data[state.finalSelection.index];
     message = await finalProcessor.finalProcessFound({
       lastMessage: lastMessage,
       selectedFood: selectedFood,
       summary: state.summary,
     });
+
+    // Determine portion of food
+    let requestedPortion = state.hardLimitQuery.portionSize;
+    if (requestedPortion === null) {
+      selectedFood.portion = 1;
+    } else {
+      requestedPortion = Math.max(1, requestedPortion);
+      const isRequestedLarger = selectedFood.portion > requestedPortion;
+      selectedFood.portion = isRequestedLarger
+        ? Math.ceil(requestedPortion / selectedFood.portion)
+        : 1;
+    }
+
+    const finalContent = [
+      { type: "text", text: message },
+      { type: "foods", foods: [selectedFood] },
+    ];
     return {
-      messages: [
-        convertTextToMessage(message),
-        new AIMessage(JSON.stringify(selectedFood)),
-      ],
+      messages: [new AIMessage(JSON.stringify(finalContent))],
     };
   } else {
     message = await finalProcessor.finalProcessNotFound({

@@ -1,11 +1,13 @@
+import defaultTheme from "tailwindcss/defaultTheme";
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
   prefix: "",
   theme: {
@@ -35,6 +37,15 @@ module.exports = {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
+        plain: {
+          DEFAULT: "hsl(var(--plain))",
+        },
+        plainMild: {
+          DEFAULT: "hsl(var(--plainMild))",
+        },
+        plainSecondary: {
+          DEFAULT: "hsl(var(--plainSecondary))",
+        },
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
@@ -62,6 +73,24 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        fadeOut: {
+          "0%": { opacity: "1" },
+          "100%": { opacity: "0" },
+        },
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        popUp: {
+          "0%": { transform: "scale(0.5)", opacity: "0" },
+          "100%": { transform: "scale(1)", opacity: "1" },
+        },
+        wiggle: {
+          "0%": { transform: "rotate(0deg)"},
+          "33%": { transform: "rotate(-45deg)"},
+          "66%": { transform: "rotate(45deg)"},
+          "100%": { transform: "rotate(0deg)"},
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -72,10 +101,17 @@ module.exports = {
         },
       },
       animation: {
+        "wiggle": "wiggle 0.5s ease-out forwards",
+        "popUp": "popUp 0.5s ease-out forwards",
+        "fadeOut": "fadeOut 0.5s ease-out forwards",
+        "fadeIn": "fadeIn 0.5s ease-out forwards",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
+    fontFamily: {
+      sans: ['"Satoshi-Variable"', ...defaultTheme.fontFamily.sans],
+    },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};

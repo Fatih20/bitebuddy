@@ -28,10 +28,12 @@ export const QueryInputSchema = z.object({
     .object({
       restaurant: z
         .string()
+        .array()
         .nullable()
         .describe("Exclusion query for restaurant"),
       menu: z
         .string()
+        .array()
         .nullable()
         .describe(
           "Exclusion query for menu. This will search based on menuName, menuDescription, and menuTag"

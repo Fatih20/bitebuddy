@@ -4,20 +4,35 @@ import bodyParser from "body-parser";
 import { ChatSchema } from "./validationSchema/chat";
 import { getZodParsingErrorFields } from "./validationSchema/zod";
 import { prisma } from "./lib/prisma";
-import { parseHistory } from "../deprecate/history";
-import { QuestionRephraser } from "./lib/ai/flows/questionRephraser";
-import { HardLimitFinder } from "./lib/ai/flows/hardLimitFinder";
 import envVar from "./envVar";
 import { FoodFinderAgent } from "./lib/ai/graph";
 import { convertStateToResponse } from "./lib/ai/utils/messageProcessing";
 import { FeedbackSchema } from "./validationSchema/feedback";
 import { queryClient } from "./lib/search/client";
+import { type NextFunction, type Request, type Response } from "express";
+import { find } from "./lib/ai/graphRev";
+
+require("express-async-errors");
+
+export const errorHandler = (
+  error: Error,
+  request: Request,
+  response: Response,
+  next: NextFunction
+): void => {
+  console.log(error.stack);
+
+  response.status(500).json({
+    error: "Internal server error",
+    message: error.name,
+  });
+};
 
 const app = express();
 const port = envVar.port;
 
 // Middleware to enable CORS
-app.use(cors());
+app.use(cors({ origin: "*" }));
 
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
@@ -80,14 +95,21 @@ app.post("/api/chat", async (req, res) => {
     });
   }
 
-  const foodFinderAgent = FoodFinderAgent.getInstance();
+  // const foodFinderAgent = FoodFinderAgent.getInstance();
 
-  const result = await foodFinderAgent.find(
+  const result = await find(
     {
       messageObject: [{ text, type: "text", role: "human" }],
     },
     conversationId
   );
+
+  // const result = await foodFinderAgent.find(
+  //   {
+  //     messageObject: [{ text, type: "text", role: "human" }],
+  //   },
+  //   conversationId
+  // );
 
   const insertedMessage = convertStateToResponse(result, conversationId);
 
@@ -201,7 +223,9 @@ app.put("/api/feedback/:conversationId/:messageId", async (req, res) => {
   }
 });
 
+app.use(errorHandler);
+
 app.listen(port, "0.0.0.0", () => {
   console.log(`Server is running at http://0.0.0.0:${port}`);
-  // queryClient.init() // todo enable this
+  queryClient.init();
 });

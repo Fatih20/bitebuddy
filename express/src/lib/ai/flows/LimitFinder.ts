@@ -10,6 +10,7 @@ import { traceable } from "langsmith/traceable";
 import { wrapSDK } from "langsmith/wrappers";
 import { Runnable, RunnableConfig } from "@langchain/core/runnables";
 import {
+  ExclusionState,
   FoodFinderAgentState,
   FoodFinderAgentStatePartial,
   HardLimitState,
@@ -17,7 +18,7 @@ import {
   SoftLimitState,
 } from "../state";
 import { assistantIdentity } from "../prompts/commons";
-import { ChatOpenAI, OpenAI } from "@langchain/openai";
+import { ChatOpenAI } from "@langchain/openai";
 
 export const uniqueValues = {
   flavor: [
@@ -144,7 +145,7 @@ The description of the food/drink:
 The JSON object you should be outputting is in the following shape:
 {{
   "restaurant" : string | null, // The name and description of the restaurant preferred by the user. Fill with null if it can't be inferred.
-  "menu" : string // The name of the food/beverage preferred by the customer, the description of the food/beverage preferred by the customer, any trait or characteristic of the food/beverage. Fill with null if it can't be inferred.
+  "menu" : string // The name of the food/beverage preferred by the user, the description of the food/beverage preferred by the user, any trait or characteristic of the food/beverage. Fill with null if it can't be inferred.
   "cuisine" : string[] // The origins of the food. Add appropriate values into the array from the list of values given below. Fill with empty array if it can't be inferred.
   "flavor" : string[], // The flavors of the food. Add appropriate values into the array from the list of values given below. Fill with empty array if it can't be inferred.
 }}
@@ -182,8 +183,8 @@ The JSON object you should be outputting is in the following shape:
     "min": number | null, // the minimum price of food demanded by the user. fill with null if there are no minimum
     "max" : number | null // the maximum price of food demanded by the user. fill with null if there are no maximum
   }},
-  isFood: boolean // does the customer want food? fill with null if it can't be inferred.
-  isDrink: boolean // does the customer want beverage? fill with null if it can't be inferred.
+  isFood: boolean // does the user want food? fill with null if it can't be inferred.
+  isDrink: boolean // does the user want beverage? fill with null if it can't be inferred.
   portionSize: number | null // the number of people that the food is for. fill with null if it cannot be inferred.
 }}
 
@@ -192,6 +193,41 @@ Outside of the obvious rule from the description of each object's property. Ther
 - The minimum and maximum price is in IDR (Indonesian Rupiah).
 - If the user would like to have food/drink with an exact price, fill the price.min and price.max with the same value, which is the exact price that the user would like to have.
 
+----
+Respond solely with the answer formatted in JSON:
+`;
+
+export const exclusionFinderPrompt = `
+${assistantIdentity}
+
+Your task in the team is to SPECIFICALLY ANALYZE WHAT THE CUSTOMER DO NOT WANT from the description of their preferred food/drink. Convert it into a JSON object describing the food/drink DISLIKED by the user. This task is very important because the object will then be used by the search engine to find WHAT SHOULD NOT BE SUGGESTED for the user's food/drink.
+----
+The description of the food/drink:
+{summary}
+----
+The JSON object you should be outputting is in the following shape:
+{{
+  "restaurant" : array of string, // The list of name and description of the restaurant that the user DO NOT WANT. Fill with multiple restaurant names if there are multiple restaurants that the user do not want. Fill with empty array if it can't be inferred.
+  "menu" : array of string // The list of name of the food/beverage disliked by the user, the description of the food/beverage disliked by the user, any trait or characteristic of the food/beverage. Fill with empty array if it can't be inferred.
+  "cuisine" : string[] // The origins of the food that the user dislike. Add appropriate values into the array from the list of values given below. Fill with empty array if it can't be inferred.
+  "flavor" : string[], // The flavors of the food that the user dislike. Add appropriate values into the array from the list of values given below. Fill with empty array if it can't be inferred.
+}}
+
+Values for cuisine:
+${uniqueValues.cuisine
+  .map((cuisine) => {
+    return `- ${cuisine}`;
+  })
+  .join("\n")}
+
+Values for flavor:
+${uniqueValues.flavor
+  .map((flavor) => {
+    return `- ${flavor}`;
+  })
+  .join("\n")}
+
+Be concise but accurate in doing your task. Stick faithfully to the given summary in making your description.
 ----
 Respond solely with the answer formatted in JSON:
 `;
@@ -213,7 +249,12 @@ export type HardLimitLLMOutput = {
   portionSize: number | null;
 };
 
-export type ExclusionLLMOutput = SoftLimitLLMOutput;
+export type ExclusionLLMOutput = {
+  restaurant: string[];
+  menu: string[];
+  cuisine: string[];
+  flavor: string[];
+};
 
 export class LimitFinder {
   private static instance: LimitFinder;
@@ -225,6 +266,11 @@ export class LimitFinder {
   private softLimitchain: Runnable<
     { summary: string },
     SoftLimitLLMOutput,
+    RunnableConfig
+  >;
+  private exclusionChain: Runnable<
+    { summary: string },
+    ExclusionLLMOutput,
     RunnableConfig
   >;
 
@@ -262,6 +308,18 @@ export class LimitFinder {
       .pipe(llm)
       .pipe(new JsonOutputParser<SoftLimitLLMOutput>());
     this.softLimitchain = softLimitChain;
+
+    console.log("Constructing exclusion finder prompt template");
+
+    const exclusionFinderPromptTemplate = PromptTemplate.fromTemplate(
+      exclusionFinderPrompt
+    );
+    console.log("Constructing exclusion finder chains");
+
+    const exclusionChain = exclusionFinderPromptTemplate
+      .pipe(llm)
+      .pipe(new JsonOutputParser<ExclusionLLMOutput>());
+    this.exclusionChain = exclusionChain;
   }
 
   static getInstance() {
@@ -304,6 +362,22 @@ export class LimitFinder {
       name: "FindSoftLimit",
     })(input, this.softLimitchain);
   }
+
+  async findExclusionUnwrapped(
+    input: { summary: string },
+    chain: typeof this.exclusionChain
+  ) {
+    return await chain.invoke(input);
+  }
+
+  public async findExclusion(input: { summary: string }) {
+    if (!this.exclusionChain) {
+      throw new Error("Composed chain not formed!");
+    }
+    return traceable(this.findExclusionUnwrapped, {
+      name: "FindExclusion",
+    })(input, this.exclusionChain);
+  }
 }
 
 export async function graphFindLimit(
@@ -312,9 +386,10 @@ export async function graphFindLimit(
   console.log("In Graph: LimitFinder");
   const limitFinder = LimitFinder.getInstance();
 
-  const [hardLimitRaw, softLimitRaw] = await Promise.all([
+  const [hardLimitRaw, softLimitRaw, exclusionRaw] = await Promise.all([
     limitFinder.findHardLimit({ summary: state.summary }),
     limitFinder.findSoftLimit({ summary: state.summary }),
+    limitFinder.findExclusion({ summary: state.summary }),
   ]);
 
   const { max: maxPrice, min: minPrice } = hardLimitRaw.price;
@@ -356,13 +431,18 @@ export async function graphFindLimit(
     dishType: dishType,
   };
 
-  const { menu, restaurant, cuisine, flavor } = softLimitRaw;
-
   const softLimitParsed: SoftLimitState = {
-    cuisine: cuisine.join("\n"),
-    flavor: flavor.join("\n"),
-    menu,
-    restaurant,
+    cuisine: softLimitRaw.cuisine.join("\n"),
+    flavor: softLimitRaw.flavor.join("\n"),
+    menu: softLimitRaw.menu,
+    restaurant: softLimitRaw.restaurant,
+  };
+
+  const exclusionParsed: ExclusionState = {
+    cuisine: exclusionRaw.cuisine.join("\n"),
+    flavor: exclusionRaw.flavor.join("\n"),
+    menu: exclusionRaw.menu,
+    restaurant: exclusionRaw.restaurant,
   };
 
   console.log("Hard limit:");
@@ -371,8 +451,12 @@ export async function graphFindLimit(
   console.log("Soft limit:");
   console.log(softLimitParsed);
 
+  console.log("Exclusion:");
+  console.log(exclusionParsed);
+
   return {
     hardLimitQuery: hardLimitParsed,
     softLimitQuery: softLimitParsed,
+    exclusion: exclusionParsed,
   };
 }

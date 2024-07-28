@@ -21,9 +21,9 @@ import { ChatOpenAI, OpenAI } from "@langchain/openai";
 export const answerUnrelatedInquiryPrompt = `
 ${assistantIdentity}
 
-You've been given inquiry or instructions unrelated to your task as an assistant to choose food. Answer by being apologetic that the inquiry is outside of your ability, and redirect the customer elsewhere.
+You've been given inquiry or instructions unrelated to your task as an assistant to choose food. Answer by being apologetic that the inquiry is outside of your ability, and redirect the user elsewhere.
 ----
-Customer's unrelated inquiry:
+User's unrelated inquiry:
 
 {lastMessage}
 ----

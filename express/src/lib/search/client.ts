@@ -14,9 +14,9 @@ const COLLECTION_NAME = "Menu";
 const RESTAURANT_COLLECTION = "Restaurant";
 
 export class QueryProcessor {
-  private client: WeaviateClient;
-  private collection: Collection<undefined, "Menu">;
-  private restaurantCollection: Collection<undefined, "Restaurant">;
+  private client?: WeaviateClient;
+  private collection?: Collection<undefined, "Menu">;
+  private restaurantCollection?: Collection<undefined, "Restaurant">;
 
   public constructor() {}
 
@@ -29,7 +29,7 @@ export class QueryProcessor {
   }
 
   private async queryRestaurant(name: string): Promise<string[]> {
-    const result = await this.restaurantCollection.query.bm25(name, {
+    const result = await this.restaurantCollection!.query.bm25(name, {
       limit: 5,
     });
     return result.objects.map((o) => o.uuid);
@@ -60,7 +60,7 @@ export class QueryProcessor {
     if (input.price) {
       if (input.price.min) {
         filters.push(
-          collection.filter
+          collection!.filter
             .byProperty("menuPrice")
             .greaterOrEqual(input.price.min)
         );
@@ -68,7 +68,9 @@ export class QueryProcessor {
 
       if (input.price.max) {
         filters.push(
-          collection.filter.byProperty("menuPrice").lessOrEqual(input.price.max)
+          collection!.filter
+            .byProperty("menuPrice")
+            .lessOrEqual(input.price.max)
         );
       }
     }
@@ -77,13 +79,13 @@ export class QueryProcessor {
     if (input.dishType && input.dishType.length !== 0) {
       if (input.dishType.length === 2) {
         filters.push(
-          collection.filter
+          collection!.filter
             .byProperty("dishType")
             .containsAll(["food", "drink"])
         );
       } else if (input.dishType.length === 1) {
         filters.push(
-          collection.filter.byProperty("dishType").containsAll(input.dishType)
+          collection!.filter.byProperty("dishType").containsAll(input.dishType)
         );
       }
     }
@@ -96,16 +98,14 @@ export class QueryProcessor {
 
       if (includeRestaurants.length !== 0) {
         filters.push(
-          this.collection.filter
-            .byRef("hasRestaurant")
+          this.collection!.filter.byRef("hasRestaurant")
             .byId()
             .containsAny(includeRestaurants)
         );
       } else {
         explainMessage = `No restaurant ${input.query.restaurant} found`;
         filters.push(
-          this.collection.filter
-            .byRef("hasRestaurant")
+          this.collection!.filter.byRef("hasRestaurant")
             .byProperty("name")
             .equal("laskjdlkasjdsa") // intentional empty result query
         );
@@ -129,14 +129,17 @@ export class QueryProcessor {
     // handle exclusion
     if (input.exclusionQuery) {
       if (input.exclusionQuery.restaurant) {
-        const excludeRestaurants = await this.queryRestaurant(
-          input.exclusionQuery.restaurant.toLocaleLowerCase()
-        );
+        const excludeRestaurants: string[] = [];
+
+        for (const rest of input.exclusionQuery.restaurant) {
+          excludeRestaurants.push(
+            ...(await this.queryRestaurant(rest.toLocaleLowerCase()))
+          );
+        }
 
         excludeRestaurants.forEach((e) => {
           filters.push(
-            this.restaurantCollection.filter
-              .byRef("hasRestaurant")
+            this.restaurantCollection!.filter.byRef("hasRestaurant")
               .byId()
               .notEqual(e)
           );
@@ -144,7 +147,9 @@ export class QueryProcessor {
       }
 
       if (input.exclusionQuery.menu) {
-        moveAwayConcepts.push(`${input.exclusionQuery.menu.toLowerCase()}`);
+        moveAwayConcepts.push(
+          ...input.exclusionQuery.menu.map((e) => e.toLowerCase())
+        );
       }
 
       if (input.exclusionQuery.flavor) {
@@ -197,7 +202,7 @@ export class QueryProcessor {
     console.log("options");
     console.log(options);
 
-    const result = await this.collection.query.nearText(
+    const result = await this.collection!.query.nearText(
       queries.join(" and "),
       options
     );

@@ -11,17 +11,6 @@ export type FoodMessage = {
   menuSections: string;
 };
 
-type MessageReturn = (
-  | {
-      type: "foods";
-      foods: FoodMessage[];
-    }
-  | {
-      type: "text";
-      text: string;
-    }
-)[];
-
 export type MessageIntermediateRole = "ai" | "human";
 
 type MessageIntermediateFood = {
@@ -43,6 +32,9 @@ export type MessageIntermediate = (
 
 export function parseHistory(messages: MessageIntermediate[]): string {
   const flattenedMessages = messages.flat(1);
+
+  // console.log("Flattened messages:");
+  // console.log(flattenedMessages);
 
   const messageString = flattenedMessages.map((message) => {
     const role =
@@ -70,22 +62,36 @@ export function convertMessageIntermediateFood(
   const foodRepresentations = foods.map(
     ({ menuName, menuPrice, menuSections, restaurantId, restaurantName }) => {
       return `
-        Restaurant name: ${restaurantName}
+        ${
+          restaurantName === undefined
+            ? ``
+            : `Restaurant name: ${restaurantName}`
+        }
         Food name: ${menuName}
+        ${menuPrice === undefined ? `` : `Menu price: ${menuPrice}`}
         Price: ${menuPrice}
-        Menu section in restaurant: ${menuSections}
+        ${
+          menuSections === undefined
+            ? ``
+            : `Menu section in restaurant: ${menuSections}`
+        }
         `;
     }
   );
-  return `${message.role}: Below are my food recommendation. 
+  const role =
+    message.role === "ai"
+      ? "Assistant"
+      : message.role === "human"
+      ? "User"
+      : "";
+  return `${role}: Below are my food recommendation. 
   ${foodRepresentations.join("----\n")}`;
 }
 
 export function getUserLastMessageString(message: MessageIntermediate) {
   // console.log("In Graph getUserLastMessageString. Message:");
   // console.log(message);
-
-  const lastMessage = message[(message.length - 1).toString()];
+  const lastMessage = message[(message.length - 1).toString() as any];
   // console.log("In Graph getUserLastMessageString. Last Message:");
   // console.log(lastMessage);
   if (lastMessage.type === "foods" || lastMessage.role === "ai") {
@@ -98,18 +104,30 @@ export function getUserLastMessageString(message: MessageIntermediate) {
 }
 
 export function getMessageIntermediates(messages: BaseMessage[]) {
-  const messagesIntermediate: MessageIntermediate[] = messages
-    .map((baseMessage) => {
-      return {
-        role: baseMessage._getType(),
-        content: JSON.parse(
-          baseMessage.content as string
-        ) as MessageIntermediate,
-      };
-    })
-    .map((processedMessage) => {
-      return processedMessage.content as MessageIntermediate;
-    });
+  const messagesIntermediate: MessageIntermediate[] = messages.map(
+    (baseMessage) => {
+      const role = baseMessage._getType();
+      const content = JSON.parse(
+        baseMessage.content as string
+      ) as MessageIntermediate;
+      const contentParsed = content.map((content) => {
+        return {
+          ...content,
+          role,
+        };
+      });
+      return contentParsed as MessageIntermediate;
+    }
+  );
+
+  // console.log("getMessageIntermediates.Message Intermediate: ");
+  // console.log(messagesIntermediate);
+  // .map((processedMessage) => {
+  //   return {
+  //     ...processedMessage.content,
+  //     role: processedMessage.role,
+  //   } as MessageIntermediate;
+  // });
 
   return messagesIntermediate;
 }

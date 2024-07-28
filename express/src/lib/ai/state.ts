@@ -8,6 +8,7 @@ export const messageTypes = [
   "closing",
   "unrelatedInquiry",
   "somethingElse",
+  "askForSuggestion",
 ] as const;
 
 export type MessageType = (typeof messageTypes)[number];
@@ -24,6 +25,13 @@ export type HardLimitState = {
 export type SoftLimitState = {
   restaurant: string | null;
   menu: string | null;
+  cuisine: string | null;
+  flavor: string | null;
+};
+
+export type ExclusionState = {
+  restaurant: string[];
+  menu: string[];
   cuisine: string | null;
   flavor: string | null;
 };
@@ -47,6 +55,7 @@ export interface FoodFinderAgentState {
   softLimitQuery: SoftLimitState;
   queryOutput: QueryOutput;
   finalSelection: FinalOutputState;
+  exclusion: ExclusionState;
 }
 
 export const stateDefault: FoodFinderAgentState = {
@@ -74,6 +83,12 @@ export const stateDefault: FoodFinderAgentState = {
   finalSelection: {
     index: undefined,
     message: undefined,
+  },
+  exclusion: {
+    cuisine: "",
+    flavor: "",
+    menu: [],
+    restaurant: [],
   },
 };
 
@@ -108,5 +123,9 @@ export const graphState: StateGraphArgs<FoodFinderAgentState>["channels"] = {
   finalSelection: {
     reducer: (x: FinalOutputState, y: FinalOutputState) => y,
     default: () => stateDefault.finalSelection,
+  },
+  exclusion: {
+    reducer: (x: ExclusionState, y: ExclusionState) => y,
+    default: () => stateDefault.exclusion,
   },
 };

@@ -5,11 +5,9 @@ import { PromptTemplate } from "@langchain/core/prompts";
 
 import { traceable } from "langsmith/traceable";
 import { wrapSDK } from "langsmith/wrappers";
-import {
-  rephraseQuestionPrompt,
-  summarizeHistoryPrompt,
-} from "../prompts/utils";
+
 import { Runnable, RunnableConfig } from "@langchain/core/runnables";
+import { rephraseQuestionPrompt } from "../prompts/commons";
 
 export class QuestionRephraser {
   private static instance: QuestionRephraser;

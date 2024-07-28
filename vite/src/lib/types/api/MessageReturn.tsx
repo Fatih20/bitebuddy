@@ -1,10 +1,10 @@
 export type FoodMessage = {
-  restaurantId: string;
   restaurantName: string;
-  menuId: string;
+  menuDescription: string;
   menuName: string;
-  menuPrice: string;
+  menuPrice: number;
   menuSections: string;
+  portion: number;
 };
 
 export type MessageReturn = (

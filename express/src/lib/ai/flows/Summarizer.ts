@@ -21,13 +21,19 @@ ${assistantIdentity}
 
 Your task in the team is to summarize the chat history that you will be given into the description of food or beverage from the user.
 
-Please understand that during the conversation, the customer's preference could change overtime. Focus on what is desired by the customer's NOW, NOT what the customer's had desired previously.
+Please understand that during the conversation, the user's preference could change overtime. Focus on what is desired by the user's NOW, NOT what the user's had desired previously.
 
-This description will be used down the line by other members of your team, so be as descriptive as necessary to accurately reflect the customer's preference. Multiple sentences are very much allowed.
+Be as descriptive and contextual as possible by paying attention to previous suggestion by the assistant. For example, if the food previously recommended by the assistant has a price of 30.000, but then the user wants cheaper food, then say that the user demands food with the price below 30.000. The same also applies when the user is asking for more expensive stuff.
+
+You should also pay attention to the menu name and restaurant name previously suggested by the assistant. If after the assistant suggested a food, the user demands to get something else, then mention that the user do not want food from the menu name and menu restaurant previously suggested by the assistant.
+
+if the user had previously been suggested foods/beverages by the assistant, but then the user decides to want something else, put that in very clearly in your summary.
+
+This description will be used down the line by other members of your team, so be as descriptive as necessary to accurately reflect the user's preference. Multiple and many sentences are very much allowed.
 
 Ignore things said by the user that is not related to what they want for food or beverage.
 ----
-Customer's chat history:
+User's chat history:
 
 {chatHistory}
 ----
@@ -37,6 +43,12 @@ Meatball with hot spicy broth made out of beef. The meatball should have yellow 
 
 ### Example response 2
 Italian noodles using fettucini noodles with small slices of meat sprinkled in. Soft thick sauces are preferred over thin ones. It's preferred to have a sweet taste over spicy one.
+
+### Example response 3
+Fried chicken with spicy sambal and softly fried. Soft thick sauces are preferred over thin ones. Spicy chicken is preferred, do not make it sweet. The user wants the price to be lower than 40.000 and a different menu than the Hangry Cajun Fried Chicken from the Hangry Food Restaurant
+
+### Example response 4
+Sweet chocolate milkshake. Make it as sweet as possible with a lot of sugar. It should cost more 10.000 and is not the Sweet Chocolate Milkshake from Circle K.
 ----
 Respond with your answer, don't use quotation marks to enclose it:
 `;
@@ -49,7 +61,7 @@ export class Summarizer {
     const llm = wrapSDK(
       new ChatAnthropic({
         model: "claude-3-5-sonnet-20240620",
-        temperature: 0.3,
+        temperature: 0.4,
         anthropicApiKey: envVar.anthropicAPIKey,
       })
     );

@@ -7,11 +7,11 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist",
-    "rootDir": "express/src",
+    "rootDir": "src",
     "paths": {
-      "@/*": ["./express/src/*"]
+      "@/*": ["./src/*"]
     }
   },
-  "include": ["express/src/**/*"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.test.ts"]
 }
